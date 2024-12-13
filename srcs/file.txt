@@ -1,0 +1,35 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    file.txt                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nboucher <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/12/11 14:31:12 by nboucher          #+#    #+#              #
+#    Updated: 2024/12/11 16:47:21 by nboucher         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+pseudo code 
+
+strategie ps
+
+// declare poointeurs vers 2 list chained une pour stack a et une autre pour stack b 
+ mettre les deux pointeurs to NULL pour veski les comportement indefini
+
+ check l'input avec splits ....
+ si erreur, return (error);
+ initialize stack A en ajoutant chaque entre en neud vers la stack A
+ verif les ducplication, overflows, syntax error + ou - rien d'autre
+ si erreur, free stack A and return (erro );
+ faire atoi si input = string
+ ajouter les neuds sur la stack a 
+ check si stack a est trier si non, impletmente l'algo de tri
+ si il y a 2 entre --> inversement et si trois nombres --> algo de tri expres pour trois
+ si il y a  > 3 input, implemente algo turk
+
+ enfin, clean up la stack
+
+
+maintenamt je peux utiliser toute les fonctions de ma libft
+
