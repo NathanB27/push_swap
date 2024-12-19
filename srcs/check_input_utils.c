@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:44:53 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/16 14:24:57 by nboucher         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:51:26 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,13 @@ int	nbstr_cmp(const char *s1, const char *s2)
 char **parse(int ac, char **av)
 {
 	char **input;
-
 	if (ac == 2)
+	{
 		input = ft_split(av[1], ' ');
+	}
 	else
 	{
-		input = av;	
+		input = av + 1;	
 	}
 	return (input);
 }
@@ -62,8 +63,8 @@ int	get_stack_size(t_stack *stack)
 	i = 0;
 	while (stack != NULL)
 	{
-		i++;
 		stack = stack->next;
+		i++;
 	}
 	return (i);
 }

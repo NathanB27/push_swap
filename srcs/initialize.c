@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:55:39 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/16 14:21:59 by nboucher         ###   ########.fr       */
+/*   Updated: 2024/12/18 10:00:41 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,27 +43,26 @@ void	assign_index(t_stack *stack_a, int stack_size)
 	}
 }
 
-t_stack	*fill_stack_values(int ac, char **av)
+t_stack	*fill_stack_values(char **input)
 {
-	t_stack		*stack_a;
+	t_stack		*stack;
 	long int	nb;
 	int			i;
 
-	stack_a = NULL;
+	stack = NULL;
 	nb = 0;
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (input[i])
 	{
-		nb = ft_atoi(av[i]);
-		//if (nb > INT_MAX || nb < INT_MIN)
-		//exit_error(&stack_a, NULL);
-		if (i == 1)
-			stack_a = stack_new((int)nb);
+		nb = ft_atoi(input[i]);
+		//mettre des securite
+		if (i == 0)
+			stack = stack_new((int)nb);
 		else
-			stack_add_bottom(&stack_a, stack_new((int)nb));
+			stack_add_bottom(&stack, stack_new((int)nb));
 		i++;
 	}
-	return (stack_a);
+	return (stack);
 }
 
 

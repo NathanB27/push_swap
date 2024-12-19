@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/16 14:24:18 by nboucher         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:49:30 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,18 @@ typedef struct s_stack
 	int				value;
 	int				index;
 	int				pos;
-	int				target_pos;
 	int				cost;
+	int			is_above_med;
 	struct s_stack	*next;
+	struct s_stack	*target;
+	struct s_stack	*previous;
 }	t_stack;
+
 
 char	**clean_input(char *str);
 int len_ptr(char **ptr);
 t_stack	*stack_new(int value);
-t_stack	*fill_stack_values(int ac, char **av);
+t_stack	*fill_stack_values(char **input);
 int	get_stack_size(t_stack *stack);
 void	stack_add_bottom(t_stack **stack, t_stack *new);
 t_stack	*get_bottom(t_stack *stack);
@@ -61,4 +64,15 @@ void	do_ra(t_stack	**stack_a);
 void	do_rb(t_stack	**stack_b);
 void	do_rr(t_stack	**stack_a, t_stack **stack_b);
 void	do_rra(t_stack **stack_a);
+void	do_rrb(t_stack **stack_b);
+void	do_rrr(t_stack **stack_a, t_stack **stack_b);
+void	push(t_stack **src, t_stack **dest);
+void	do_pa(t_stack	**stack_a, t_stack **stack_b);
+void	do_pb(t_stack	**stack_b, t_stack **stack_a);
+void	first_mov(t_stack **stack_a, t_stack **stack_b);
+void	get_cost_summit(t_stack *stack_a);
+void	assign_cost(t_stack *stack_a, t_stack *stack_b);
+int		get_value_nearest(int value, t_stack *stack_b);
+int		get_min(t_stack *stack);
+
 #endif

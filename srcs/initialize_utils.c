@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:18:53 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/16 14:19:09 by nboucher         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:39:07 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ t_stack	*stack_new(int value)
 		return (NULL);
 	new->value = value;
 	new->index = 0;
-	new->pos = -1;
-	new->target_pos = -1;
-	new->cost = -1;
+	new->pos = 0;
+	new->target = 0;
+	new->cost = 0;
+	new->is_above_med = 0;
 	new->next = NULL;
+	new->previous = NULL;
 	return (new);
 }
 
@@ -48,11 +50,10 @@ t_stack	*get_bottom(t_stack	*stack)
 
 t_stack	*get_before_bottom(t_stack *stack)
 {
-	while (stack && stack->next->next != NULL)
+	while (stack && stack->next != NULL)
 		stack = stack->next;
-	return (stack);
+	return (stack->previous);	
 }
-
 
 void	stack_add_bottom(t_stack **stack, t_stack *new)
 {
@@ -67,6 +68,7 @@ void	stack_add_bottom(t_stack **stack, t_stack *new)
 	}
 	end = get_bottom(*stack);
 	end->next = new;
+	new->previous = end;
 }
 
 
