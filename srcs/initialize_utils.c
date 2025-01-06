@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:18:53 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/19 16:39:07 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:09:34 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int len_ptr(char **ptr)
 	}
 	return (0);
 }
+
 t_stack	*stack_new(int value)
 {
 	t_stack	*new;

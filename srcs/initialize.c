@@ -6,13 +6,11 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:55:39 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/18 10:00:41 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:05:09 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 void	assign_index(t_stack *stack_a, int stack_size)
 {
@@ -64,5 +62,4 @@ t_stack	*fill_stack_values(char **input)
 	}
 	return (stack);
 }
-
 
