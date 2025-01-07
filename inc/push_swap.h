@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/06 15:52:55 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:55:20 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,10 @@ void		push(t_stack **src, t_stack **dest);
 void		do_pa(t_stack	**stack_a, t_stack **stack_b);
 void		do_pb(t_stack	**stack_b, t_stack **stack_a);
 void		first_mov(t_stack **stack_a, t_stack **stack_b);
-void		get_cost_summit(t_stack *stack_a);
+void		cost_tobe_summit(t_stack *stack_a);
 void		assign_cost(t_stack *stack_a, t_stack *stack_b);
 int			get_value_nearest(int value, t_stack *stack_b);
 int			get_min(t_stack *stack);
+void		is_above_med(t_stack *stack);
 
 #endif

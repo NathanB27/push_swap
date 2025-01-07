@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:25:30 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/06 16:07:51 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:25:33 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	calcul_pos(t_stack *stack)
 	{
 		tmp->pos = i;
 		i++;
+		tmp = tmp->next;
 	}
 }
 
@@ -32,16 +33,21 @@ void is_above_med(t_stack *stack)
 	int i;
 	t_stack	*tmp;
 
-	len = get_stack_size(t_stack *stack);
-	i = 0;
+	len = get_stack_size(stack);
+	i = 1;
 	tmp = stack;
-	if (len % 2 == 0)
+	if (len)
 	{
-		while (i <= (len / 2))
+		while (i <= ((len) / 2))
 		{
 			tmp->is_above_med = 1;
 			tmp = tmp->next;
 			i++;
+		}
+		while (tmp)
+		{
+			tmp->is_above_med = 0;
+			tmp = tmp->next;
 		}
 	}
 	else 
@@ -54,7 +60,7 @@ void is_above_med(t_stack *stack)
 	}
 }
 
-void	assign_index(t_stack *stack)
+void	assign_pos(t_stack *stack)
 {
 	calcul_pos(stack);
 	is_above_med(stack);

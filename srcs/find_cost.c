@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:11:50 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/06 16:09:49 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:36:33 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,19 @@ void	cost_tobe_summit(t_stack *stack)
 	tmp = stack;
 	len = get_stack_size(tmp);
 	i = 0;
-	assign_index(stack, len);
-	while (i <= (len / 2) && !tmp->next) 
+	is_above_med(stack);
+	tmp = stack;
+	while (tmp && (i < len / 2))
 	{
 		tmp->cost = i;
 		tmp = tmp->next;
-		tmp->is_above_med = 1;
 		i++;
 	}
 	if (len % 2 == 1)
-		i--;
-	else 
-		i-=2;	
+	{
+		tmp->cost = i;
+		tmp = tmp->next;
+	}
 	while (tmp)
 	{
 		tmp->cost = i;
@@ -77,7 +78,6 @@ int	get_value_nearest(int	value, t_stack *stack_b)
 	}
 	return (nearest);
 }
-
 
 t_stack	*get_ptr(int value, t_stack *stack_b)
 {
