@@ -36,27 +36,11 @@ void is_above_med(t_stack *stack)
 	len = get_stack_size(stack);
 	i = 1;
 	tmp = stack;
-	if (len)
+	while (i <= ((len) / 2))
 	{
-		while (i <= ((len) / 2))
-		{
-			tmp->is_above_med = 1;
-			tmp = tmp->next;
-			i++;
-		}
-		while (tmp)
-		{
-			tmp->is_above_med = 0;
-			tmp = tmp->next;
-		}
-	}
-	else 
-	{
-		while (tmp)
-		{
-			tmp->is_above_med = 0;
-			tmp = tmp->next;
-		}
+		tmp->is_above_med = 1;
+		tmp = tmp->next;
+		i++;
 	}
 }
 

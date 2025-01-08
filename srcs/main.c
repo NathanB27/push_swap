@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:28:43 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/08 11:17:55 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/08 16:15:50 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,41 @@ int	main(int ac,char **av)
 	{
 		stack_a = fill_stack_values(input);
 		assign_pos(stack_a);
-		is_above_med(stack_a);
+		assign_pos(stack_b);
 		
-	}
+		first_mov(&stack_a, &stack_b);
+		first_mov(&stack_a, &stack_b);
+		first_mov(&stack_a, &stack_b);
+		
+		assign_pos(stack_b);
+		assign_pos(stack_a);
+		ft_printf("----------------------------------------------------------\n");
+
+		pleure_sur_le_poulet(&stack_a, &stack_b);
+		/*while (stack_a)
+		{
+			ft_printf("value : %d position : %d above median ? : %d \n", stack_a->value, stack_a->pos, stack_a->is_above_med);
+			stack_a = stack_a->next;
+		}
+		ft_printf("----------------------------------------------------------\n");
+		while (stack_b)
+		{
+			ft_printf("value : %d position : %d above median ? : %d \n", stack_b->value, stack_b->pos, stack_b->is_above_med);
+			stack_b = stack_b->next;	
+		}
+		
+		while (stack_a)
+		{
+			ft_printf("value : %d position : %d above median : %d cost : %d \n", stack_a->value, stack_a->pos, stack_a->is_above_med, stack_a->cost);
+			stack_a = stack_a->next;
+		}
+		ft_printf("----------------------------------------------------------\n");
+		while (stack_b)
+		{
+			ft_printf("value : %d position : %d above median : %d cost : %d \n", stack_b->value, stack_b->pos, stack_b->is_above_med, stack_b->cost);
+			stack_b = stack_b->next;
+		}
+		*/
+	} 
 }
 

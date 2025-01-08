@@ -76,5 +76,5 @@ void		assign_cost(t_stack *stack_a, t_stack *stack_b);
 int			get_value_nearest(int value, t_stack *stack_b);
 int			get_min(t_stack *stack);
 void		is_above_med(t_stack *stack);
-
+void		pleure_sur_le_poulet(t_stack **stack_a, t_stack **stack_b);
 #endif
