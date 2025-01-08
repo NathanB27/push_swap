@@ -5,7 +5,7 @@ NAME = push_swap
 
 SRCS_DIR = srcs/
 SRCS_SRCS = $(addprefix ${SRCS_DIR}, check_input.c check_input_utils.c check_stack.c initialize.c initialize_utils.c \
-			rotate.c reverse_rotate.c swap.c tiny_sort.c push.c main.c find_cost.c sort.c position.c)
+			movement/rotate.c movement/reverse_rotate.c movement/swap.c tiny_sort.c movement/push.c main.c find_cost.c sort.c position.c)
 
 LIBFT_DIR = libft_pimped
 LIBFT = ${LIBFT_DIR}/libft.a

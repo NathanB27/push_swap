@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 11:13:26 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/06 15:03:23 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/08 10:57:27 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //ss : sa and sb at the same time.
 
 #include "push_swap.h"
-
+/*
 void	swap(t_stack *stack)
 {
 	int	tmp;
@@ -28,6 +28,22 @@ void	swap(t_stack *stack)
 	tmp = stack->pos;
 	stack->index = stack->next->index;
 	stack->next->index = tmp;
+}
+*/
+
+static void	swap(t_stack *stack)
+{
+	int	tmp;
+	
+	if (stack == NULL || stack->next == NULL)
+		return;
+	tmp = stack->value;
+	stack->value = stack->next->value;
+	stack->next->value = tmp;
+	tmp = stack->pos;
+	stack->pos = stack->next->pos;
+	stack->next->pos = tmp;
+		
 }
 
 void	do_sa(t_stack **stack_a)

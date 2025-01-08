@@ -6,12 +6,12 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:55:39 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/07 11:33:08 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/08 10:51:12 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 void	assign_index(t_stack *stack_a, int stack_size)
 {
 	t_stack	*ptr;
@@ -40,7 +40,7 @@ void	assign_index(t_stack *stack_a, int stack_size)
 			highest->index = stack_size;
 	}
 }
-
+*/
 t_stack	*fill_stack_values(char **input)
 {
 	t_stack		*stack;

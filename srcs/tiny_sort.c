@@ -6,24 +6,24 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:57:21 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/06 15:05:15 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/08 10:46:15 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_highest_index(t_stack *stack)
+static int	find_highest_value(t_stack *stack)
 {
-	int		index;
+	int	value;
 
-	index = stack->index;
+	value = stack->value;
 	while (stack)
 	{
-		if (stack->index > index)
-			index = stack->index;
+		if ( stack->value > value)
+			value = stack->value;
 		stack = stack->next;
 	}
-	return (index);
+	return (value);
 }
 
 void	tiny_sort(t_stack **stack)
@@ -32,11 +32,11 @@ void	tiny_sort(t_stack **stack)
 
 	if (is_sorted(*stack))
 		return ;
-	highest = find_highest_index(*stack);
-	if ((*stack)->index == highest)
+	highest = find_highest_value(*stack);
+	if ((*stack)->value == highest)
 		do_ra(stack);
-	else if ((*stack)->next->index == highest)
+	else if ((*stack)->next->value == highest)
 		do_rra(stack);
-	if ((*stack)->index > (*stack)->next->index)
+	if ((*stack)->value > (*stack)->next->value)
 		do_sa(stack);
 }

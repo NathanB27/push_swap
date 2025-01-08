@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/07 15:55:20 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/08 10:57:45 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 #include <get_next_line.h>
 #include <libft.h>
 # include <stddef.h>
-# include <stdlib.h>
+//# include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include <stdio.h>
+//# include <stdio.h>
 
 typedef struct s_stack
 {
 	int				value;
-	int				index;
+	//int				index;
 	int				pos;
 	int				cost;
 	int			is_above_med;
@@ -54,9 +54,9 @@ char		**parse(int ac, char **av);
 int			is_sorted(t_stack	*stack);
 int			get_stack_size(t_stack *stack);
 void		assign_pos(t_stack *stack);
-void		assign_index(t_stack *stack_a, int stack_size);
+//void		assign_index(t_stack *stack_a, int stack_size);
 void		tiny_sort(t_stack **stack_a);
-void		swap(t_stack *stack);
+//void		swap(t_stack *stack);
 void		do_sa(t_stack **stack_a);
 void		do_sb(t_stack **stack_b);
 void		do_ss(t_stack **stack_a, t_stack **stack_b);
