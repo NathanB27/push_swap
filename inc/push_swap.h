@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/08 10:57:45 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/09 12:18:55 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 
 typedef struct s_stack
 {
-	int				value;
-	//int				index;
-	int				pos;
-	int				cost;
+	int			value;
+	int			is_cheapest;
+	int			pos;
+	int			cost;
 	int			is_above_med;
 	struct s_stack	*next;
 	struct s_stack	*target;
@@ -76,5 +76,7 @@ void		assign_cost(t_stack *stack_a, t_stack *stack_b);
 int			get_value_nearest(int value, t_stack *stack_b);
 int			get_min(t_stack *stack);
 void		is_above_med(t_stack *stack);
-void		pleure_sur_le_poulet(t_stack **stack_a, t_stack **stack_b);
+void		fonction_test(t_stack **stack_a, t_stack **stack_b);
+void	reorder_stacks(t_stack **stack, t_stack *top_node, char name);
+
 #endif

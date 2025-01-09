@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:18:53 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/08 10:58:09 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/09 10:52:12 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ t_stack	*stack_new(int value)
 	if (!new)
 		return (NULL);
 	new->value = value;
-	//new->index = 0;
+	new->is_cheapest = 0;
 	new->pos = 0;
-	new->target = 0;
+	new->target = NULL;
 	new->cost = 0;
 	new->is_above_med = 0;
 	new->next = NULL;

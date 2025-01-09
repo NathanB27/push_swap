@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:28:43 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/08 16:15:50 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/09 10:59:40 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int ac,char **av)
 		assign_pos(stack_a);
 		ft_printf("----------------------------------------------------------\n");
 
-		pleure_sur_le_poulet(&stack_a, &stack_b);
+		fonction_test(&stack_a, &stack_b);
 		/*while (stack_a)
 		{
 			ft_printf("value : %d position : %d above median ? : %d \n", stack_a->value, stack_a->pos, stack_a->is_above_med);
