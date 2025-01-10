@@ -1,0 +1,14 @@
+modifier la fonction get_min pour qu'elle renvoi le pointeur du neud ou la value est la plus petite
+
+
+ou alors faire get_ptr(get_min(....));
+
+t_Stack find_min  != get_min
+
+
+
+init stack work bad -> check that sheet
+
+
+
+check si push a et push b sont correctement fait, j'ai surement inverser

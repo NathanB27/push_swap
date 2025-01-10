@@ -32,7 +32,7 @@ char	*del_line_buffer(char *buffer);
 
 // prototype of function utils...
 
-size_t		ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *s1, char *s2);
 void	*ft_calloc(size_t count, size_t size);
 

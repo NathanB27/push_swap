@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:11:50 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/08 15:24:10 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/10 13:27:47 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,25 @@ void	cost_tobe_summit(t_stack *stack)
 	}
 }
 
-int	get_min(t_stack *stack)
+int	get_min(t_stack **stack)
 {
 	int	min;
  
-	min = stack->value;
-	while (stack)
+	min = (*stack)->value;
+	while (*stack)
 	{
-		if (min > stack->value)
-			min = stack->value;
-		stack = stack->next;
+		if (min > (*stack)->value)
+			min = (*stack)->value;
+		*stack = (*stack)->next;
 	}
 	return (min);
 }
 
-int	get_value_nearest(int	value, t_stack *stack_b)
+int	get_value_nearest(int	value, t_stack **stack_b)
 {
 	t_stack	*tmp;
 	int		nearest;
-	tmp = stack_b;
+	tmp = *stack_b;
 
 	nearest = get_min(stack_b);
 	while (tmp)
@@ -110,23 +110,25 @@ void	assign_cost(t_stack	*stack_a, t_stack *stack_b)
 		stack_a = stack_a->next;
 	}
 }*/
-void	assign_target(t_stack *stack_a, t_stack *stack_b)
+void	assign_target(t_stack **stack_a, t_stack **stack_b)
 {
-	while (stack_a)
+	while (*stack_a)
 	{
-		stack_a->target = get_ptr(get_value_nearest(stack_a->value, stack_b), stack_b);
-		stack_a = stack_a->next;
+		(*stack_a)->target = find_min(*stack_b);
+		*stack_a = (*stack_a)->next;
 	}
 }
 
 void	assign_cost(t_stack	*stack_a, t_stack *stack_b)
 {
-	assign_target(stack_a, stack_b);
+	
+	assign_target(&stack_a, &stack_b);
+	
 	cost_tobe_summit(stack_a);
 	cost_tobe_summit(stack_b);
 	while (stack_a)
 	{
-		stack_a->cost += stack_a->target->cost + 1;
+		stack_a->cost += stack_a->target->cost;
 		stack_a = stack_a->next;
 	}
 }

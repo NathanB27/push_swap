@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:25:30 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/06 16:25:33 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/10 13:37:12 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void is_above_med(t_stack *stack)
 	}
 }
 
-void	assign_pos(t_stack *stack)
+void	assign_pos(t_stack **stack)
 {
-	calcul_pos(stack);
-	is_above_med(stack);
+	calcul_pos(*stack);
+	is_above_med(*stack);
 }

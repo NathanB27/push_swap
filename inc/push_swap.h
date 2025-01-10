@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/09 12:18:55 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/10 14:58:45 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int			nbstr_cmp(const char *s1, const char *s2);
 char		**parse(int ac, char **av);
 int			is_sorted(t_stack	*stack);
 int			get_stack_size(t_stack *stack);
-void		assign_pos(t_stack *stack);
+void		assign_pos(t_stack **stack);
 //void		assign_index(t_stack *stack_a, int stack_size);
 void		tiny_sort(t_stack **stack_a);
 //void		swap(t_stack *stack);
@@ -73,10 +73,21 @@ void		do_pb(t_stack	**stack_b, t_stack **stack_a);
 void		first_mov(t_stack **stack_a, t_stack **stack_b);
 void		cost_tobe_summit(t_stack *stack_a);
 void		assign_cost(t_stack *stack_a, t_stack *stack_b);
-int			get_value_nearest(int value, t_stack *stack_b);
-int			get_min(t_stack *stack);
+int			get_value_nearest(int value, t_stack **stack_b);
+int			get_min(t_stack **stack);
 void		is_above_med(t_stack *stack);
 void		fonction_test(t_stack **stack_a, t_stack **stack_b);
 void	reorder_stacks(t_stack **stack, t_stack *top_node, char name);
+t_stack	*get_ptr(int value, t_stack *stack_b);
+t_stack	*find_min(t_stack *stack);
+t_stack	*find_max(t_stack *stack);
+void	target_node_a(t_stack *stack_a, t_stack *stack_b);
+void	target_node_b(t_stack *stack_a, t_stack *stack_b);
+void	define_cheapest(t_stack *stack);
+void	push_a_to_b(t_stack **stack_a, t_stack **stack_b);
+void	push_b_to_a(t_stack **stack_a, t_stack **stack_b);
+void	order_a(t_stack **stack_a);
+void	push_swap(t_stack **stack_a, t_stack **stack_b);
+void	big_algo(t_stack **stack_a, t_stack **stack_b);
 
 #endif
