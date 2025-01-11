@@ -12,3 +12,6 @@ init stack work bad -> check that sheet
 
 
 check si push a et push b sont correctement fait, j'ai surement inverser
+
+
+erreur in push_a_to_b -> todo

@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:57:21 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/10 14:59:06 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/11 16:34:47 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void	tiny_sort(t_stack **stack)
 
 void	init_stack_a(t_stack **stack_a, t_stack **stack_b)
 {
-	assign_pos(stack_a);
-	assign_pos(stack_b);
+	set_position(*stack_a);
+	set_position(*stack_b);
 	target_node_a(*stack_a, *stack_b);
-	assign_cost(*stack_a, *stack_b);
+	calcul_cost(*stack_a, *stack_b);
 	define_cheapest(*stack_a);
 }
 
@@ -61,26 +61,19 @@ void	big_algo(t_stack **stack_a, t_stack **stack_b)
 		do_pb(stack_a, stack_b);
 	while (len_stack-- > 3)
 	{
-		init_stack_a(stack_a, stack_b);
-
+		init_stack_a(stack_a, stack_b);	
 		push_a_to_b(stack_a, stack_b);
 	}
 	tiny_sort(stack_a);
 
-	ft_printf("fail is in loop stack_b\n");
 	while (*stack_b)
 	{
-		assign_pos(stack_a);
-		assign_pos(stack_b);
+		set_position(*stack_a);
+		set_position(*stack_b);
 		target_node_b(*stack_a, *stack_b);
-
-		ft_printf("bug is in b to a\n");
 		push_b_to_a(stack_a, stack_b);
 	}
-	
-	ft_printf("assign pos work\n");
-	assign_pos(stack_a);
-	ft_printf("before order_a\n");
+	set_position(*stack_a);
 	order_a(stack_a);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:18:53 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/09 10:52:12 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/11 16:21:17 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,19 @@ t_stack	*stack_new(int value)
 {
 	t_stack	*new;
 
-	new = malloc(sizeof * new);
+	new = (t_stack *)ft_calloc(1, sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->value = value;
-	new->is_cheapest = 0;
 	new->pos = 0;
-	new->target = NULL;
 	new->cost = 0;
+	new->is_cheapest = 0;
 	new->is_above_med = 0;
+	new->target = NULL;
 	new->next = NULL;
 	new->previous = NULL;
 	return (new);
+
 }
 
 t_stack	*get_bottom(t_stack	*stack)

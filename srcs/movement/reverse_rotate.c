@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:14:28 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/17 11:31:05 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/11 16:42:00 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 void	reverse_rotate(t_stack **stack)
 {
-	t_stack	*tmp;
 	t_stack	*tail;
-	t_stack	*before_tail;
 
 	tail = get_bottom(*stack);
-	before_tail = get_before_bottom(*stack);
-	tmp = *stack;
+	tail->previous->next = NULL;
+	tail->previous = NULL;
+	tail->next = *stack;
 	*stack = tail;
-	(*stack)->next = tmp;
-	before_tail->next = NULL;
+	tail->next->previous = tail;
+
 }
 
 void	do_rra(t_stack	**stack_a)

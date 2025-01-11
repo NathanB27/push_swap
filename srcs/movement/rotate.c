@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:00:28 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/16 15:00:32 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/11 16:44:47 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	rotate(t_stack **stack)
 {
-	t_stack	*tmp;
 	t_stack	*tail;
 
-	tmp = *stack;
-	*stack= (*stack)->next;
 	tail = get_bottom(*stack);
-	tmp->next = NULL;
-	tail->next = tmp;
+	tail->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->previous = NULL;
+	tail->next->previous = tail;
+	tail->next->next = NULL;
 }
 
 void	do_ra(t_stack	**stack_a)

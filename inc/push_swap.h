@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/10 14:58:45 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/11 15:58:48 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,7 @@ void	push_b_to_a(t_stack **stack_a, t_stack **stack_b);
 void	order_a(t_stack **stack_a);
 void	push_swap(t_stack **stack_a, t_stack **stack_b);
 void	big_algo(t_stack **stack_a, t_stack **stack_b);
-
+void	set_position(t_stack *stack);
+void	calcul_cost(t_stack *stack_a, t_stack *stack_b);
+t_stack	*create_stack_a(char **input);
 #endif

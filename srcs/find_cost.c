@@ -6,12 +6,13 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:11:50 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/10 13:27:47 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/11 14:32:48 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
 void	cost_tobe_summit(t_stack *stack)
 {
 	int	len;
@@ -41,7 +42,7 @@ void	cost_tobe_summit(t_stack *stack)
 		i--;
 	}
 }
-
+*/
 int	get_min(t_stack **stack)
 {
 	int	min;
@@ -55,30 +56,22 @@ int	get_min(t_stack **stack)
 	}
 	return (min);
 }
-
-int	get_value_nearest(int	value, t_stack **stack_b)
+/*
+static int	get_max(t_stack **stack)
 {
-	t_stack	*tmp;
-	int		nearest;
-	tmp = *stack_b;
-
-	nearest = get_min(stack_b);
-	while (tmp)
+	int	max;
+ 
+	max = (*stack)->value;
+	while (*stack)
 	{
-		if (tmp->value > value)
-			tmp = tmp->next;
-		else if (tmp->value < value)
-		{
-			if (tmp->value > nearest)
-				nearest = tmp->value;
-			if (nearest == tmp->value - 1)
-				return (nearest);
-			tmp = tmp->next;
-		}
+		if (max < (*stack)->value)
+			max = (*stack)->value;
+		*stack = (*stack)->next;
 	}
-	return (nearest);
+	return (max);
 }
-//stack_a->target = get_ptr(get_value_nearest(stack_a->value, stack_b), stack_b);
+*/
+
 t_stack	*get_ptr(int value, t_stack *stack_b)
 {
 	t_stack	*dest;
@@ -92,24 +85,7 @@ t_stack	*get_ptr(int value, t_stack *stack_b)
 	}
 	return (stack_b);
 }
-/*
-void	assign_cost(t_stack	*stack_a, t_stack *stack_b)
-{
-	int	nearest;
-	t_stack	*tmp_b;
-		
-	cost_tobe_summit(stack_a);
-	cost_tobe_summit(stack_b);
-	nearest = 0;
-	while (stack_a)
-	{
-		tmp_b = stack_b;
-		nearest = get_value_nearest(stack_a->value, stack_b);
-		stack_a->target = get_ptr(nearest, stack_b);
-		stack_a->cost += stack_a->target->cost + 1;
-		stack_a = stack_a->next;
-	}
-}*/
+
 void	assign_target(t_stack **stack_a, t_stack **stack_b)
 {
 	while (*stack_a)
@@ -118,7 +94,7 @@ void	assign_target(t_stack **stack_a, t_stack **stack_b)
 		*stack_a = (*stack_a)->next;
 	}
 }
-
+/*
 void	assign_cost(t_stack	*stack_a, t_stack *stack_b)
 {
 	
@@ -129,6 +105,46 @@ void	assign_cost(t_stack	*stack_a, t_stack *stack_b)
 	while (stack_a)
 	{
 		stack_a->cost += stack_a->target->cost;
+		stack_a = stack_a->next;
+	}
+}
+*/
+static int	biggest(int a, int b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+
+void	calcul_cost(t_stack *stack_a, t_stack *stack_b)
+{
+	int	len_a;
+	int	len_b;
+	int	va_under;
+	int	va_above;
+
+	len_a = get_stack_size(stack_a);
+	len_b = get_stack_size(stack_b);
+	ft_printf("before loop \n");
+	while (stack_a)
+	{
+		ft_printf("before biggest  \n");
+		va_under = biggest(stack_a->pos, stack_a->target->pos);
+		va_above = biggest(len_a - stack_a->pos, len_b - stack_a->target->pos);
+		ft_printf(" func biggest work \n");
+		stack_a->cost = stack_a->pos;
+		if (stack_a->is_above_med)
+			stack_a->cost = len_a - (stack_a->pos);
+		if (!(stack_a->target->is_above_med))
+			stack_a->cost += (stack_a->target->pos);
+		else
+			stack_a->cost += len_b - (stack_a->target->pos);
+		if (stack_a->is_above_med && stack_a->target->is_above_med)
+			stack_a->cost = va_above;
+		else if (!(stack_a->is_above_med) && !(stack_a->target->is_above_med))
+			stack_a->cost = va_under;
 		stack_a = stack_a->next;
 	}
 }
