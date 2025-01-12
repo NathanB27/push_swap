@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:00:28 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 13:14:54 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/12 14:25:52 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	do_rb(t_stack	**stack_b)
 
 void	do_rr(t_stack	**stack_a, t_stack **stack_b)
 {
-	do_ra(stack_a);
-	do_rb(stack_b);
+	rotate(stack_a);
+	rotate(stack_b);
 	ft_printf("rr\n");
 }

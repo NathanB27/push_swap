@@ -6,43 +6,12 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:11:50 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 12:58:46 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/12 14:05:31 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-void	cost_tobe_summit(t_stack *stack)
-{
-	int	len;
-	int	i;
-	t_stack	*tmp;
-
-	tmp = stack;
-	len = get_stack_size(tmp);
-	i = 0;
-	is_above_med(stack);
-	tmp = stack;
-	while (tmp && (i < len / 2))
-	{
-		tmp->cost = i;
-		tmp = tmp->next;
-		i++;
-	}
-	if (len % 2 == 1)
-	{
-		tmp->cost = i;
-		tmp = tmp->next;
-	}
-	while (tmp)
-	{
-		tmp->cost = i;
-		tmp = tmp->next;
-		i--;
-	}
-}
-*/
 int	get_min(t_stack **stack)
 {
 	int	min;
@@ -56,21 +25,6 @@ int	get_min(t_stack **stack)
 	}
 	return (min);
 }
-/*
-static int	get_max(t_stack **stack)
-{
-	int	max;
- 
-	max = (*stack)->value;
-	while (*stack)
-	{
-		if (max < (*stack)->value)
-			max = (*stack)->value;
-		*stack = (*stack)->next;
-	}
-	return (max);
-}
-*/
 
 t_stack	*get_ptr(int value, t_stack *stack_b)
 {
@@ -85,30 +39,8 @@ t_stack	*get_ptr(int value, t_stack *stack_b)
 	}
 	return (stack_b);
 }
-/*
-void	assign_target(t_stack **stack_a, t_stack **stack_b)
-{
-	while (*stack_a)
-	{
-		(*stack_a)->target = find_min(*stack_b);
-		*stack_a = (*stack_a)->next;
-	}
-}
 
-void	assign_cost(t_stack	*stack_a, t_stack *stack_b)
-{
-	
-	assign_target(&stack_a, &stack_b);
-	
-	cost_tobe_summit(stack_a);
-	cost_tobe_summit(stack_b);
-	while (stack_a)
-	{
-		stack_a->cost += stack_a->target->cost;
-		stack_a = stack_a->next;
-	}
-}
-*/
+
 static int	biggest(int a, int b)
 {
 	if (a > b)
@@ -116,7 +48,6 @@ static int	biggest(int a, int b)
 	else
 		return (b);
 }
-
 
 void	calcul_cost(t_stack *stack_a, t_stack *stack_b)
 {
