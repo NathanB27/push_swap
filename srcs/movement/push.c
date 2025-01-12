@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:16:48 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/11 16:48:32 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/12 13:15:53 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	do_pa(t_stack	**stack_a, t_stack **stack_b)
 	ft_printf("pa\n");
 }
 
-void	do_pb(t_stack	**stack_b, t_stack **stack_a)
+void	do_pb(t_stack	**stack_a, t_stack **stack_b)
 {
 	push(stack_b, stack_a);
 	ft_printf("pb\n");

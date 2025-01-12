@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/11 15:58:48 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/12 13:14:09 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@
 # include <stddef.h>
 //# include <stdlib.h>
 # include <unistd.h>
+#include <stdbool.h>
 # include <limits.h>
 //# include <stdio.h>
 
 typedef struct s_stack
 {
 	int			value;
-	int			is_cheapest;
+	bool			is_cheapest;
 	int			pos;
 	int			cost;
-	int			is_above_med;
+	bool			is_above_med;
 	struct s_stack	*next;
 	struct s_stack	*target;
 	struct s_stack	*previous;
@@ -37,6 +38,7 @@ typedef struct s_stack
 
 char		**clean_input(char *str);
 int 		len_ptr(char **ptr);
+t_stack *get_last(t_stack *stack);
 t_stack		*stack_new(int value);
 t_stack		*fill_stack_values(char **input);
 int			get_stack_size(t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:14:28 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/11 16:42:00 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/12 13:14:38 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*tail;
 
-	tail = get_bottom(*stack);
+	tail =  get_last(*stack);
 	tail->previous->next = NULL;
 	tail->previous = NULL;
 	tail->next = *stack;

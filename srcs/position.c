@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:25:30 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/11 14:30:25 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/12 12:53:35 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	set_position(t_stack *stack)
 	{
 		stack->pos = i;
 		if (i <= med)
-			stack->is_above_med = 0;
+			stack->is_above_med = false;
 		else
-			stack->is_above_med = 1;
+			stack->is_above_med = true;
 		stack = stack->next;
 		i++;
 	}

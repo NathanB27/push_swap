@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:44:53 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/17 10:51:26 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/12 13:00:04 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ int	get_stack_size(t_stack *stack)
 	int	i;
 
 	i = 0;
-	while (stack != NULL)
+	while (stack)
 	{
-		stack = stack->next;
 		i++;
+		stack = stack->next;
 	}
 	return (i);
 }

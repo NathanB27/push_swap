@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:11:50 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/11 14:32:48 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/12 12:58:46 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ t_stack	*get_ptr(int value, t_stack *stack_b)
 	}
 	return (stack_b);
 }
-
+/*
 void	assign_target(t_stack **stack_a, t_stack **stack_b)
 {
 	while (*stack_a)
@@ -94,7 +94,7 @@ void	assign_target(t_stack **stack_a, t_stack **stack_b)
 		*stack_a = (*stack_a)->next;
 	}
 }
-/*
+
 void	assign_cost(t_stack	*stack_a, t_stack *stack_b)
 {
 	
@@ -127,13 +127,10 @@ void	calcul_cost(t_stack *stack_a, t_stack *stack_b)
 
 	len_a = get_stack_size(stack_a);
 	len_b = get_stack_size(stack_b);
-	ft_printf("before loop \n");
 	while (stack_a)
 	{
-		ft_printf("before biggest  \n");
 		va_under = biggest(stack_a->pos, stack_a->target->pos);
 		va_above = biggest(len_a - stack_a->pos, len_b - stack_a->target->pos);
-		ft_printf(" func biggest work \n");
 		stack_a->cost = stack_a->pos;
 		if (stack_a->is_above_med)
 			stack_a->cost = len_a - (stack_a->pos);
@@ -141,7 +138,7 @@ void	calcul_cost(t_stack *stack_a, t_stack *stack_b)
 			stack_a->cost += (stack_a->target->pos);
 		else
 			stack_a->cost += len_b - (stack_a->target->pos);
-		if (stack_a->is_above_med && stack_a->target->is_above_med)
+		if (stack_a->is_above_med  && stack_a->target->is_above_med)
 			stack_a->cost = va_above;
 		else if (!(stack_a->is_above_med) && !(stack_a->target->is_above_med))
 			stack_a->cost = va_under;
