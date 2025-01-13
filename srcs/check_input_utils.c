@@ -68,3 +68,5 @@ int	get_stack_size(t_stack *stack)
 	}
 	return (i);
 }
+
+

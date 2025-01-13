@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:11:50 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 14:05:31 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/13 09:58:47 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,6 @@ int	get_min(t_stack **stack)
 	return (min);
 }
 
-t_stack	*get_ptr(int value, t_stack *stack_b)
-{
-	t_stack	*dest;
-	
-	dest = NULL;
-	while (stack_b != NULL)
-	{
-		if (stack_b->value == value)
-			return (stack_b);
-		stack_b = stack_b->next;
-	}
-	return (stack_b);
-}
-
-
 static int	biggest(int a, int b)
 {
 	if (a > b)
@@ -53,15 +38,15 @@ void	calcul_cost(t_stack *stack_a, t_stack *stack_b)
 {
 	int	len_a;
 	int	len_b;
-	int	va_under;
-	int	va_above;
+	int	cost_down;
+	int	cost_up;
 
 	len_a = get_stack_size(stack_a);
 	len_b = get_stack_size(stack_b);
 	while (stack_a)
 	{
-		va_under = biggest(stack_a->pos, stack_a->target->pos);
-		va_above = biggest(len_a - stack_a->pos, len_b - stack_a->target->pos);
+		cost_down = biggest(stack_a->pos, stack_a->target->pos);
+		cost_up = biggest(len_a - stack_a->pos, len_b - stack_a->target->pos);
 		stack_a->cost = stack_a->pos;
 		if (stack_a->is_above_med)
 			stack_a->cost = len_a - (stack_a->pos);
@@ -70,9 +55,9 @@ void	calcul_cost(t_stack *stack_a, t_stack *stack_b)
 		else
 			stack_a->cost += len_b - (stack_a->target->pos);
 		if (stack_a->is_above_med  && stack_a->target->is_above_med)
-			stack_a->cost = va_above;
+			stack_a->cost = cost_up;
 		else if (!(stack_a->is_above_med) && !(stack_a->target->is_above_med))
-			stack_a->cost = va_under;
+			stack_a->cost = cost_down;
 		stack_a = stack_a->next;
 	}
 }

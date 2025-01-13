@@ -1,17 +1,7 @@
-modifier la fonction get_min pour qu'elle renvoi le pointeur du neud ou la value est la plus petite
-
-
-ou alors faire get_ptr(get_min(....));
-
-t_Stack find_min  != get_min
+changer la fonction check_input pour que ca gere les ac == 2 et ac > 2 et les mauvais input
 
 
 
-init stack work bad -> check that sheet
+CHECK LE LEAKS QUAND IL Y A QUE UN SEUL NOMBRE
 
-
-
-check si push a et push b sont correctement fait, j'ai surement inverser
-
-
-erreur in push_a_to_b -> todo
+demander si dans check input je mets return (0); apres le putstr error ?????

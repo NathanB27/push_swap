@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "push_swap.h"
 
 int	arg_is_number(char *av)
@@ -60,23 +61,31 @@ int	arg_is_zero(char *av)
 	return (1);
 }
 
-int	is_correct_input(char **av)
+int	is_correct_input(char **input)
 {
 	int	i;
 	int	nb_zeros;
+	int error;
 
 	nb_zeros = 0;
 	i = 1;
-	while (av[i])
+	error = 0;
+	while (input[i])
 	{
-		if (!arg_is_number(av[i]))
-			return (0);
-		nb_zeros += arg_is_zero(av[i]);
+		if (!arg_is_number(input[i]))
+			error++;
+		nb_zeros += arg_is_zero(input[i]);
 		i++;
 	}
 	if (nb_zeros > 1)
+		error++;
+	if (have_duplicates(input))
+		error++;
+	if (error > 0 || i == 1)
+	{
+		ft_putstr_fd("Error\n", 2);
 		return (0);
-	if (have_duplicates(av))
-		return (0);
+	}
 	return (1);
 }
+

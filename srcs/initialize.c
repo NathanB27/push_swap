@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:55:39 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 13:14:12 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/13 10:06:41 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ t_stack	*create_stack_a(char **input)
 		new = stack_new(ft_atoi(input[i]));
 		if (!new)
 		{
+			free(new);
 			return (NULL);
 		}
 		ft_stackadd_back(&stack_a, new);

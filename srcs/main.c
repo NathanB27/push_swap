@@ -6,64 +6,40 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:28:43 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 13:16:42 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/13 10:21:30 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "push_swap.h"
-
-/*
-int	main(int ac,char **av)
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	char **input;
-	int	len;
-	len = 0;
-	stack_b = NULL;
-	stack_a = NULL;
-	input = parse(ac, av);
-	if (!is_correct_input(input))
-		return (0);
-	if (ac > 1)
-	{
-		stack_a = create_stack_a(input);
-		stack_b = NULL;
-		push_swap(&stack_a, &stack_b);
-	}
-}
-*/
+#include <string.h>
 
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	**splited;
-	bool	do_we_free;
+	char	**split;
+	bool	need_free;
 
-	do_we_free = false;
+	need_free = false;
+	split = NULL;
 	if (ac == 1)
 		return (1);
-	if (ac == 2 && av[1][0])
+	if (ac == 2)
 	{
-		splited = ft_split(av[1], ' ');
-		do_we_free = true;
+		split = ft_split(av[1], ' ');
+		need_free = true;
 	}
-	else
-		splited = av + 1;
-	if (!splited || !splited[0] || !splited[0][0] ) /*check_errors(splited))*/
-	{
-		//ft_free_splited(splited, do_we_free);
-		//ft_putstr_fd("Error\n", 2);
-		return (1);
-	}
-	stack_a = create_stack_a(splited);
+	else if (ac > 2)
+		split = av + 1;
+	stack_a = create_stack_a(split);
 	stack_b = NULL;
-	push_swap(&stack_a, &stack_b);
-	//ft_free_stack(&stack_a);
+	if (is_correct_input(split))
+		push_swap(&stack_a, &stack_b);
+	if (need_free)
+		free_input(split);
+	free_stack(&stack_a, &stack_b);
 }
-
-
 
 void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
@@ -71,7 +47,7 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 
 	if (!stack_a)
 	{
-		return ;	
+		return ;
 	}
 	len = get_stack_size(*stack_a);
 	if (!is_sorted(*stack_a))
@@ -85,5 +61,6 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 			big_algo(stack_a, stack_b);
 		}
 	}
+	//else
+		//ft_putstr_fd("error\n", 2);
 }
-

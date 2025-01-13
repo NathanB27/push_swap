@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 13:14:09 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/13 14:07:05 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,22 @@ typedef struct s_stack
 
 
 char		**clean_input(char *str);
-int 		len_ptr(char **ptr);
 t_stack *get_last(t_stack *stack);
+void	free_input(char **input);
 t_stack		*stack_new(int value);
 t_stack		*fill_stack_values(char **input);
 int			get_stack_size(t_stack *stack);
-void		stack_add_bottom(t_stack **stack, t_stack *new);
-t_stack		*get_bottom(t_stack *stack);
-t_stack 	*get_before_bottom(t_stack	*stack);
+void	free_stack(t_stack **stack_a, t_stack **stack_b);
 int			check_input(char *str);
 int			arg_is_number(char *av);
 int			have_duplicates(char **av);
 int			arg_is_zero(char *av);
-int			is_correct_input(char **av);
+int			is_correct_input(char **input);
 int			is_sign(char c);
 int			nbstr_cmp(const char *s1, const char *s2);
-char		**parse(int ac, char **av);
 int			is_sorted(t_stack	*stack);
 int			get_stack_size(t_stack *stack);
 void		assign_pos(t_stack **stack);
-//void		assign_index(t_stack *stack_a, int stack_size);
-void		tiny_sort(t_stack **stack_a);
 //void		swap(t_stack *stack);
 void		do_sa(t_stack **stack_a);
 void		do_sb(t_stack **stack_b);
@@ -73,14 +68,7 @@ void		push(t_stack **src, t_stack **dest);
 void		do_pa(t_stack	**stack_a, t_stack **stack_b);
 void		do_pb(t_stack	**stack_b, t_stack **stack_a);
 void		first_mov(t_stack **stack_a, t_stack **stack_b);
-void		cost_tobe_summit(t_stack *stack_a);
-void		assign_cost(t_stack *stack_a, t_stack *stack_b);
-int			get_value_nearest(int value, t_stack **stack_b);
 int			get_min(t_stack **stack);
-void		is_above_med(t_stack *stack);
-void		fonction_test(t_stack **stack_a, t_stack **stack_b);
-void	reorder_stacks(t_stack **stack, t_stack *top_node, char name);
-t_stack	*get_ptr(int value, t_stack *stack_b);
 t_stack	*find_min(t_stack *stack);
 t_stack	*find_max(t_stack *stack);
 void	target_node_a(t_stack *stack_a, t_stack *stack_b);
@@ -91,7 +79,11 @@ void	push_b_to_a(t_stack **stack_a, t_stack **stack_b);
 void	order_a(t_stack **stack_a);
 void	push_swap(t_stack **stack_a, t_stack **stack_b);
 void	big_algo(t_stack **stack_a, t_stack **stack_b);
+void	tiny_sort(t_stack **stack_a);
+
 void	set_position(t_stack *stack);
 void	calcul_cost(t_stack *stack_a, t_stack *stack_b);
+
 t_stack	*create_stack_a(char **input);
+void	reorder_stacks(t_stack **stack, t_stack *top_node, char name);
 #endif

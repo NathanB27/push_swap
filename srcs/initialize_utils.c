@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:18:53 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 13:11:49 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/13 09:50:01 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,4 @@ t_stack	*stack_new(int value)
 	return (new);
 
 }
-
-/*
-t_stack	*get_bottom(t_stack	*stack)
-{
-	while (stack && stack->next != NULL)
-		stack = stack->next;
-	return (stack);
-}
-
-t_stack	*get_before_bottom(t_stack *stack)
-{
-	while (stack && stack->next != NULL)
-		stack = stack->next;
-	return (stack->previous);	
-}
-*/
 
