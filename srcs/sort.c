@@ -6,48 +6,11 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:23:31 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 14:08:43 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:03:25 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	first_mov(t_stack **stack_a, t_stack **stack_b)
-{
-	do_pb(stack_a, stack_b);
-	do_pb(stack_a, stack_b);
-}
-
-t_stack	*get_cheapest(t_stack *stack)
-{
-	while (stack)
-	{
-		if (stack->is_cheapest)
-			return (stack);
-		stack = stack->next;
-	}
-	return (NULL);
-}
-
-void	define_cheapest(t_stack *stack)
-{
-	long int	cheapest;
-	t_stack		*cheapest_node;
-
-	if (!stack)
-		return ;
-	cheapest = LONG_MAX;
-	while (stack)
-	{
-		if (stack->cost < cheapest)
-		{
-			cheapest = stack->cost;
-			cheapest_node = stack;
-		}
-		stack = stack->next;
-	}
-	cheapest_node->is_cheapest = true;
-}
 
 void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
@@ -100,49 +63,6 @@ void	reorder_stacks(t_stack **stack, t_stack *top_node, char name)
 		}
 	}
 }
-
-t_stack	*find_min(t_stack *stack)
-{
-	long int	min;
-	t_stack		*tmp;
-
-	if (!stack)
-		return (NULL);
-	tmp = NULL;
-	min = LONG_MAX;
-	while (stack)
-	{
-		if (stack->value < min)
-		{
-			min = stack->value;
-			tmp = stack;
-		}
-		stack = stack->next;
-	}
-	return (tmp);
-}
-
-t_stack	*find_max(t_stack *stack)
-{
-	long int	max;
-	t_stack		*tmp;
-
-	if (!stack)
-		return (NULL);
-	tmp = NULL;
-	max = LONG_MIN;
-	while (stack)
-	{
-		if (stack->value > max)
-		{
-			max = stack->value;
-			tmp = stack;
-		}
-		stack = stack->next;
-	}
-	return (tmp);
-}
-
 
 void	order_a(t_stack **stack_a)
 {

@@ -6,39 +6,40 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:28:43 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/13 10:21:30 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:48:36 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "push_swap.h"
-#include <string.h>
 
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	**split;
+	char	**input;
 	bool	need_free;
 
 	need_free = false;
-	split = NULL;
 	if (ac == 1)
 		return (1);
-	if (ac == 2)
+	if (ac == 2 && av[1][0])
 	{
-		split = ft_split(av[1], ' ');
+		input = ft_split(av[1], ' ');
 		need_free = true;
 	}
-	else if (ac > 2)
-		split = av + 1;
-	stack_a = create_stack_a(split);
+	else
+		input = av + 1;
+	if (!input || !input[0] || !input[0][0] || !is_correct_input(input))
+	{
+		free_input(input, need_free);
+		ft_putstr_fd("Error\n", 2);
+		return (1);
+	}
+	stack_a = create_stack_a(input);
 	stack_b = NULL;
-	if (is_correct_input(split))
-		push_swap(&stack_a, &stack_b);
-	if (need_free)
-		free_input(split);
-	free_stack(&stack_a, &stack_b);
+	push_swap(&stack_a, &stack_b);
+	free_input(input, need_free);
+	free_stack(&stack_a);
 }
 
 void	push_swap(t_stack **stack_a, t_stack **stack_b)
@@ -61,6 +62,4 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 			big_algo(stack_a, stack_b);
 		}
 	}
-	//else
-		//ft_putstr_fd("error\n", 2);
 }

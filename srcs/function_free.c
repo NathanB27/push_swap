@@ -6,43 +6,36 @@
 /*   By: nboucher <nboucher@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:22:19 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/13 10:22:19 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:53:58 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_input(char **input)
+void	free_input(char **input, bool need_free)
 {
 	int	i;
 
 	i = 0;
-	while (input[i])
+	if (need_free)
 	{
-		free(input[i]);
-		i++;
+		while (input[i])
+			free(input[i++]);
+		free(input);
 	}
-	free(input);
 }
 
-void	free_stack(t_stack **stack_a, t_stack **stack_b)
+void	free_stack(t_stack **stack)
 {
-	while (*stack_a)
+	t_stack	*tmp;
+
+	if (!stack)
+		return ;
+	tmp = NULL;
+	while (*stack)
 	{
-		free(*stack_a);
-		(*stack_a) = (*stack_a)->next;
-	}
-	free(stack_a);
-	if (*stack_b)
-	{
-		while (*stack_b)
-		{
-			free(*stack_b);
-			(*stack_b) = (*stack_b)->next;
-		}
-		free(stack_b);
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
 }
-
-//void	free_all(char **input)
-

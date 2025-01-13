@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize_utils.c                                 :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 14:18:53 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/13 17:56:21 by nboucher         ###   ########.fr       */
+/*   Created: 2025/01/13 16:56:49 by nboucher          #+#    #+#             */
+/*   Updated: 2025/01/13 16:56:54 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-t_stack	*stack_new(int value)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_stack	*new;
+	int	i;
 
-	new = (t_stack *)ft_calloc(1, sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->value = value;
-	new->pos = 0;
-	new->cost = 0;
-	new->is_cheapest = false;
-	new->is_above_med = false;
-	new->target = NULL;
-	new->next = NULL;
-	new->previous = NULL;
-	return (new);
-
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+	{
+		i ++;
+	}
+	return (s1[i] - s2[i]);
 }
+

@@ -16,7 +16,7 @@ FT_MEM_OBJ = ${addprefix ${FT_MEM_DIR}, ${FT_MEM_SRCS:.c=.o}}
 FT_STR_DIR = ft_str/
 FT_STR_SRCS = ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
 			  ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
-			  ft_strrchr.c ft_strtrim.c 
+			  ft_strrchr.c ft_strtrim.c ft_strcmp.c 
 FT_STR_OBJ = ${addprefix ${FT_STR_DIR}, ${FT_STR_SRCS:.c=.o}}
 
 FT_LST_DIR = ft_lst/

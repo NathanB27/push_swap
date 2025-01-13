@@ -6,45 +6,44 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:29:01 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/13 08:47:24 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:55:27 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-int	arg_is_number(char *av)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	if (is_sign(av[i]) && av[i + 1] != '\0')
-		i++;
-	while (av[i] && ft_isdigit(av[i]))
-		i++;
-	if (av[i] != '\0' && !ft_isdigit(av[i]))
-		return (0);
-	return (1);
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+	{
+		i ++;
+	}
+	return (s1[i] - s2[i]);
 }
 
-int	have_duplicates(char **av)
+static bool	have_duplicates(char **input)
 {
-	int	i;
-	int	j;
+    int i;
+	int j;
 
-	i = 1;
-	while (av[i])
+	i = 0;
+	j = 0;
+    while (input[i])
 	{
-		j = 1;
-		while (av[j])
+        int j = i + 1;
+        while (input[j])
 		{
-			if (j != i && nbstr_cmp(av[i], av[j]) == 0)
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
+            if (ft_strcmp(input[i], input[j]) == 0)
+                return true;
+            j++;
+    	}
+        i++;
+    }
+    return false;
 }
 
 int	arg_is_zero(char *av)
@@ -61,7 +60,7 @@ int	arg_is_zero(char *av)
 	return (1);
 }
 
-int	is_correct_input(char **input)
+int	is_correct_input(char **av)
 {
 	int	i;
 	int	nb_zeros;
@@ -70,22 +69,36 @@ int	is_correct_input(char **input)
 	nb_zeros = 0;
 	i = 1;
 	error = 0;
-	while (input[i])
+	while (av[i])
 	{
-		if (!arg_is_number(input[i]))
+		if (!arg_is_number(av[i]) ||  !only_digit(av[i]))
 			error++;
-		nb_zeros += arg_is_zero(input[i]);
+		nb_zeros += arg_is_zero(av[i]);
 		i++;
 	}
 	if (nb_zeros > 1)
 		error++;
-	if (have_duplicates(input))
+	if (have_duplicates(av))
 		error++;
-	if (error > 0 || i == 1)
+	if (error > 0 || i == 1 || nb_zeros > 1)
 	{
-		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
 	return (1);
 }
 
+int	only_digit(char *input)
+{
+	int	i;
+
+	i = 0;
+	while (input[i])
+	{
+		if (input[i] == '-' || input[i] == '+')
+			i++;
+		else if (input[i] < '0' || input[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}

@@ -6,14 +6,13 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:55:39 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/13 10:06:41 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:55:59 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-t_stack *get_last(t_stack *stack)
+t_stack	*get_last(t_stack *stack)
 {
 	while(stack)
 	{
@@ -65,4 +64,3 @@ t_stack	*create_stack_a(char **input)
 	}
 	return (stack_a);
 }
-
