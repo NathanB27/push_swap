@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:18:53 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/13 17:56:21 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:33:27 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ t_stack	*stack_new(int value)
 	new->next = NULL;
 	new->previous = NULL;
 	return (new);
-
 }

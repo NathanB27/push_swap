@@ -6,25 +6,11 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:11:50 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/13 09:58:47 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:42:49 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	get_min(t_stack **stack)
-{
-	int	min;
- 
-	min = (*stack)->value;
-	while (*stack)
-	{
-		if (min > (*stack)->value)
-			min = (*stack)->value;
-		*stack = (*stack)->next;
-	}
-	return (min);
-}
 
 static int	biggest(int a, int b)
 {
@@ -54,11 +40,10 @@ void	calcul_cost(t_stack *stack_a, t_stack *stack_b)
 			stack_a->cost += (stack_a->target->pos);
 		else
 			stack_a->cost += len_b - (stack_a->target->pos);
-		if (stack_a->is_above_med  && stack_a->target->is_above_med)
+		if (stack_a->is_above_med && stack_a->target->is_above_med)
 			stack_a->cost = cost_up;
 		else if (!(stack_a->is_above_med) && !(stack_a->target->is_above_med))
 			stack_a->cost = cost_down;
 		stack_a = stack_a->next;
 	}
 }
-

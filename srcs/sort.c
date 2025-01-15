@@ -6,16 +6,37 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:23:31 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/13 18:03:25 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:47:01 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static void	reorder_stacks(t_stack **stack, t_stack *top_node, char name)
+{
+	while (*stack != top_node)
+	{
+		if (name == 'a')
+		{
+			if (top_node->is_above_med)
+				do_rra(stack);
+			else
+				do_ra(stack);
+		}
+		if (name == 'b')
+		{
+			if (top_node->is_above_med)
+				do_rrb(stack);
+			else
+				do_rb(stack);
+		}
+	}
+}
+
 void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*cheapest;
-	
+
 	cheapest = get_cheapest(*stack_a);
 	if (!(cheapest->is_above_med) && !(cheapest->target->is_above_med))
 	{
@@ -40,28 +61,6 @@ void	push_b_to_a(t_stack **stack_a, t_stack **stack_b)
 {
 	reorder_stacks(stack_a, (*stack_b)->target, 'a');
 	do_pa(stack_a, stack_b);
-
-}
-
-void	reorder_stacks(t_stack **stack, t_stack *top_node, char name)
-{
-	while (*stack != top_node)
-	{
-		if (name == 'a')
-		{
-			if (top_node->is_above_med)
-				do_rra(stack);
-			else
-				do_ra(stack);
-		}
-		if (name == 'b')
-		{
-			if (top_node->is_above_med)
-				do_rrb(stack);
-			else
-				do_rb(stack);
-		}
-	}
 }
 
 void	order_a(t_stack **stack_a)

@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:55:39 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/13 17:55:59 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:33:07 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stack	*get_last(t_stack *stack)
 {
-	while(stack)
+	while (stack)
 	{
 		if (!(stack->next))
 			return (stack);

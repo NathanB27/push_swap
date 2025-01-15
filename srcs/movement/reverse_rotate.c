@@ -6,25 +6,24 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:14:28 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 14:25:15 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:48:31 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_rotate(t_stack **stack)
+static void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*tail;
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	tail =  get_last(*stack);
+	tail = get_last(*stack);
 	tail->previous->next = NULL;
 	tail->previous = NULL;
 	tail->next = *stack;
 	*stack = tail;
 	tail->next->previous = tail;
-
 }
 
 void	do_rra(t_stack	**stack_a)
@@ -45,4 +44,3 @@ void	do_rrr(t_stack	**stack_a, t_stack **stack_b)
 	reverse_rotate(stack_b);
 	ft_printf("rrr\n");
 }
-

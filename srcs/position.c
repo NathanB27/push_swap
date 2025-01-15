@@ -6,12 +6,11 @@
 /*   By: nboucher <nboucher@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:25:30 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 12:53:35 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:24:14 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	set_position(t_stack *stack)
 {
@@ -33,4 +32,3 @@ void	set_position(t_stack *stack)
 		i++;
 	}
 }
-

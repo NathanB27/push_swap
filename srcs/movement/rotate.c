@@ -6,13 +6,13 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:00:28 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 14:25:52 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:48:44 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_stack **stack)
+static void	rotate(t_stack **stack)
 {
 	t_stack	*tail;
 

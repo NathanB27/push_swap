@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:22:19 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/13 17:53:58 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:09:22 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_input(char **input, bool need_free)
 	int	i;
 
 	i = 0;
-	if (need_free)
+	if (input && need_free)
 	{
 		while (input[i])
 			free(input[i++]);

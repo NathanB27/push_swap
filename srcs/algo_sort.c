@@ -6,10 +6,9 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:57:21 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 14:16:42 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:40:04 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -24,7 +23,6 @@ void	tiny_sort(t_stack **stack_a)
 		do_rra(stack_a);
 	if ((*stack_a)->value > (*stack_a)->next->value)
 		do_sa(stack_a);
-	
 }
 
 void	init_stack_a(t_stack *stack_a, t_stack *stack_b)
@@ -36,7 +34,7 @@ void	init_stack_a(t_stack *stack_a, t_stack *stack_b)
 	define_cheapest(stack_a);
 }
 
-void	big_algo(t_stack **stack_a, t_stack **stack_b)
+void	algo(t_stack **stack_a, t_stack **stack_b)
 {
 	int	len_stack;
 
@@ -47,7 +45,7 @@ void	big_algo(t_stack **stack_a, t_stack **stack_b)
 		do_pb(stack_a, stack_b);
 	while (len_stack-- > 3)
 	{
-		init_stack_a(*stack_a, *stack_b);	
+		init_stack_a(*stack_a, *stack_b);
 		push_a_to_b(stack_a, stack_b);
 	}
 	tiny_sort(stack_a);
@@ -61,4 +59,3 @@ void	big_algo(t_stack **stack_a, t_stack **stack_b)
 	set_position(*stack_a);
 	order_a(stack_a);
 }
-

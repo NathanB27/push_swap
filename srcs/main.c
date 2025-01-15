@@ -6,12 +6,34 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:28:43 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/13 17:48:36 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:43:44 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
+
+static void	push_swap(t_stack **stack_a, t_stack **stack_b)
+{
+	unsigned int	len;
+
+	if (!stack_a)
+	{
+		return ;
+	}
+	len = get_stack_size(*stack_a);
+	if (!is_sorted(*stack_a))
+	{
+		if (len == 2)
+			do_sa(stack_a);
+		else if (len == 3)
+			tiny_sort(stack_a);
+		else
+		{
+			algo(stack_a, stack_b);
+		}
+	}
+}
 
 int	main(int ac, char **av)
 {
@@ -39,28 +61,5 @@ int	main(int ac, char **av)
 	stack_a = create_stack_a(input);
 	stack_b = NULL;
 	push_swap(&stack_a, &stack_b);
-	free_input(input, need_free);
 	free_stack(&stack_a);
-}
-
-void	push_swap(t_stack **stack_a, t_stack **stack_b)
-{
-	unsigned int	len;
-
-	if (!stack_a)
-	{
-		return ;
-	}
-	len = get_stack_size(*stack_a);
-	if (!is_sorted(*stack_a))
-	{
-		if (len == 2)
-			do_sa(stack_a);
-		else if (len == 3)
-			tiny_sort(stack_a);
-		else
-		{
-			big_algo(stack_a, stack_b);
-		}
-	}
 }
