@@ -6,12 +6,13 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:28:43 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 13:43:44 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:35:31 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
+#include <stdbool.h>
 
 static void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
@@ -25,7 +26,7 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	if (!is_sorted(*stack_a))
 	{
 		if (len == 2)
-			do_sa(stack_a);
+			do_sa(stack_a, true);
 		else if (len == 3)
 			tiny_sort(stack_a);
 		else

@@ -6,11 +6,12 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:57:21 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 13:40:04 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:37:09 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdbool.h>
 
 void	tiny_sort(t_stack **stack_a)
 {
@@ -18,11 +19,11 @@ void	tiny_sort(t_stack **stack_a)
 
 	highest = find_max(*stack_a);
 	if (*stack_a == highest)
-		do_ra(stack_a);
+		do_ra(stack_a, true);
 	else if ((*stack_a)->next == highest)
-		do_rra(stack_a);
+		do_rra(stack_a, true);
 	if ((*stack_a)->value > (*stack_a)->next->value)
-		do_sa(stack_a);
+		do_sa(stack_a, true);
 }
 
 void	init_stack_a(t_stack *stack_a, t_stack *stack_b)
@@ -40,9 +41,9 @@ void	algo(t_stack **stack_a, t_stack **stack_b)
 
 	len_stack = get_stack_size(*stack_a);
 	if (len_stack-- > 3 && !is_sorted(*stack_a))
-		do_pb(stack_a, stack_b);
+		do_pb(stack_a, stack_b, true);
 	if (len_stack-- > 3 && !is_sorted(*stack_a))
-		do_pb(stack_a, stack_b);
+		do_pb(stack_a, stack_b, true);
 	while (len_stack-- > 3)
 	{
 		init_stack_a(*stack_a, *stack_b);

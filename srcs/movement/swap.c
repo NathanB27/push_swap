@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 11:13:26 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/12 14:26:05 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:33:13 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,24 @@ static void	swap(t_stack **stack)
 	(*stack)->previous = NULL;
 }
 
-void	do_sa(t_stack **stack_a)
+void	do_sa(t_stack **stack_a, bool print)
 {
 	swap(stack_a);
-	ft_printf("sa\n");
+	if (print)
+		ft_printf("sa\n");
 }
 
-void	do_sb(t_stack **stack_b)
+void	do_sb(t_stack **stack_b, bool print)
 {
 	swap(stack_b);
-	ft_printf("sb\n");
+	if (print)
+		ft_printf("sb\n");
 }
 
-void	do_ss(t_stack **stack_a, t_stack **stack_b)
+void	do_ss(t_stack **stack_a, t_stack **stack_b, bool print)
 {
 	swap(stack_a);
 	swap(stack_b);
-	ft_printf("ss\n");
+	if (print)
+		ft_printf("ss\n");
 }

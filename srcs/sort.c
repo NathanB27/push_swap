@@ -6,11 +6,12 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:23:31 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 13:47:01 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:36:34 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdbool.h>
 
 static void	reorder_stacks(t_stack **stack, t_stack *top_node, char name)
 {
@@ -19,16 +20,16 @@ static void	reorder_stacks(t_stack **stack, t_stack *top_node, char name)
 		if (name == 'a')
 		{
 			if (top_node->is_above_med)
-				do_rra(stack);
+				do_rra(stack, true);
 			else
-				do_ra(stack);
+				do_ra(stack, true);
 		}
 		if (name == 'b')
 		{
 			if (top_node->is_above_med)
-				do_rrb(stack);
+				do_rrb(stack, true);
 			else
-				do_rb(stack);
+				do_rb(stack, true);
 		}
 	}
 }
@@ -41,26 +42,26 @@ void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	if (!(cheapest->is_above_med) && !(cheapest->target->is_above_med))
 	{
 		while (*stack_b != cheapest->target && *stack_a != cheapest)
-			do_rr(stack_a, stack_b);
+			do_rr(stack_a, stack_b, true);
 		set_position(*stack_a);
 		set_position(*stack_b);
 	}
 	else if ((cheapest->is_above_med) && (cheapest->target->is_above_med))
 	{
 		while (*stack_b != cheapest->target && *stack_a != cheapest)
-			do_rrr(stack_a, stack_b);
+			do_rrr(stack_a, stack_b, true);
 		set_position(*stack_a);
 		set_position(*stack_b);
 	}
 	reorder_stacks(stack_a, cheapest, 'a');
 	reorder_stacks(stack_b, cheapest->target, 'b');
-	do_pb(stack_a, stack_b);
+	do_pb(stack_a, stack_b, true);
 }
 
 void	push_b_to_a(t_stack **stack_a, t_stack **stack_b)
 {
 	reorder_stacks(stack_a, (*stack_b)->target, 'a');
-	do_pa(stack_a, stack_b);
+	do_pa(stack_a, stack_b, true);
 }
 
 void	order_a(t_stack **stack_a)
@@ -69,8 +70,8 @@ void	order_a(t_stack **stack_a)
 	{
 		set_position(*stack_a);
 		if ((find_min(*stack_a)->is_above_med))
-			do_rra(stack_a);
+			do_rra(stack_a, true);
 		else
-			do_ra(stack_a);
+			do_ra(stack_a, true);
 	}
 }

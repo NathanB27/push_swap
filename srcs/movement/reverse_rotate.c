@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:14:28 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 13:48:31 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:33:55 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,24 @@ static void	reverse_rotate(t_stack **stack)
 	tail->next->previous = tail;
 }
 
-void	do_rra(t_stack	**stack_a)
+void	do_rra(t_stack	**stack_a, bool print)
 {
 	reverse_rotate(stack_a);
-	ft_printf("rra\n");
+	if (print)
+		ft_printf("rra\n");
 }
 
-void	do_rrb(t_stack	**stack_b)
+void	do_rrb(t_stack	**stack_b, bool print)
 {
 	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
+	if (print)
+		ft_printf("rrb\n");
 }
 
-void	do_rrr(t_stack	**stack_a, t_stack **stack_b)
+void	do_rrr(t_stack	**stack_a, t_stack **stack_b, bool print)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_printf("rrr\n");
+	if (print)
+		ft_printf("rrr\n");
 }

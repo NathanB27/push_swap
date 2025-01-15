@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 13:57:33 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:35:15 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ int		only_digit(char *input);
 int		is_sorted(t_stack	*stack);
 
 // movements
-void	do_sa(t_stack **stack_a);
-void	do_sb(t_stack **stack_b);
-void	do_ss(t_stack **stack_a, t_stack **stack_b);
-void	do_ra(t_stack	**stack_a);
-void	do_rb(t_stack	**stack_b);
-void	do_rr(t_stack	**stack_a, t_stack **stack_b);
-void	do_rra(t_stack **stack_a);
-void	do_rrb(t_stack **stack_b);
-void	do_rrr(t_stack **stack_a, t_stack **stack_b);
-void	do_pa(t_stack	**stack_a, t_stack **stack_b);
-void	do_pb(t_stack	**stack_b, t_stack **stack_a);
+void	do_sa(t_stack **stack_a, bool print);
+void	do_sb(t_stack **stack_b, bool print);
+void	do_ss(t_stack **stack_a, t_stack **stack_b, bool print);
+void	do_ra(t_stack	**stack_a, bool print);
+void	do_rb(t_stack	**stack_b, bool print);
+void	do_rr(t_stack	**stack_a, t_stack **stack_b, bool print);
+void	do_rra(t_stack **stack_a, bool print);
+void	do_rrb(t_stack **stack_b, bool print);
+void	do_rrr(t_stack **stack_a, t_stack **stack_b, bool print);
+void	do_pa(t_stack	**stack_a, t_stack **stack_b, bool print);
+void	do_pb(t_stack	**stack_b, t_stack **stack_a, bool print);
 
 //free_stack_input
 void	free_stack(t_stack **stack);
