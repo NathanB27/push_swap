@@ -11,10 +11,16 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdbool.h>
 
-int	is_sign(char c)
+bool	is_sign(char c)
 {
-	return (c == '+' || c == '-');
+	if (c == '+')
+		return (true);
+	if (c == '-')
+	 return (true);
+	else
+		return (false);
 }
 
 char	**parse(int ac, char **av)
@@ -44,16 +50,14 @@ int	get_stack_size(t_stack *stack)
 	return (i);
 }
 
-int	arg_is_number(char *av)
+/*
+bool	arg_is_number(char *av)
 {
 	int	i;
 
 	i = 0;
-	if (is_sign(av[i]) && av[i + 1] != '\0')
-		i++;
-	while (av[i] && ft_isdigit(av[i]))
-		i++;
-	if (av[i] != '\0' && !ft_isdigit(av[i]))
-		return (0);
-	return (1);
+	while (is_sign(av[i]) && av[i + 1] != '\0')
+		i++
+	return (true);
 }
+*/

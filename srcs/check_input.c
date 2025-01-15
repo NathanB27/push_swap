@@ -60,27 +60,22 @@ int	arg_is_zero(char *av)
 	return (1);
 }
 
-int	is_correct_input(char **av)
+int	is_correct_input(char **input)
 {
 	int	i;
-	int	nb_zeros;
 	int error;
 
-	nb_zeros = 0;
-	i = 1;
+	i = 0;
 	error = 0;
-	while (av[i])
+	while (input[i])
 	{
-		if (!arg_is_number(av[i]) ||  !only_digit(av[i]))
-			error++;
-		nb_zeros += arg_is_zero(av[i]);
+		if (!only_digit(input[i]))
+			return (0);
 		i++;
 	}
-	if (nb_zeros > 1)
+	if (have_duplicates(input))
 		error++;
-	if (have_duplicates(av))
-		error++;
-	if (error > 0 || i == 1 || nb_zeros > 1)
+	if (error > 0 || i == 1)
 	{
 		return (0);
 	}
@@ -94,9 +89,9 @@ int	only_digit(char *input)
 	i = 0;
 	while (input[i])
 	{
-		if (input[i] == '-' || input[i] == '+')
+		while (is_sign(input[i]))
 			i++;
-		else if (input[i] < '0' || input[i] > '9')
+		if (input[i] < '0' || input[i] > '9')
 			return (0);
 		i++;
 	}
