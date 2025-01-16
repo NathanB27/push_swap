@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 15:35:15 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:26:51 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <ft_printf.h>
-# include <get_next_line.h>
+#include <get_next_line.h>
 # include <libft.h>
 # include <stddef.h>
 # include <unistd.h>
@@ -75,5 +75,11 @@ t_stack	*stack_new(int value);
 int		get_stack_size(t_stack *stack);
 t_stack	*get_cheapest(t_stack *stack);
 t_stack	*create_stack_a(char **input);
+
+//bonus
+t_stack	*init_input_and_stack(int ac, char **av);
+int	do_other_moves(t_stack **a, t_stack **b, char *s, bool *bad_inst);
+bool	is_end_line(char c);
+void	free_checker(t_stack **a, t_stack **b, char **s);
 
 #endif

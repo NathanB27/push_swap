@@ -1,7 +1,0 @@
-changer la fonction check_input pour que ca gere les ac == 2 et ac > 2 et les mauvais input
-
-
-
-CHECK LE LEAKS QUAND IL Y A QUE UN SEUL NOMBRE
-
-demander si dans check input je mets return (0); apres le putstr error ?????
