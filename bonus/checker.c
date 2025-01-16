@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:45:23 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/16 11:27:03 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:22:04 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,3 @@ int	main(int ac, char **av)
 	free_checker(&stack_a, &stack_b, &s);
 	return (0);
 }
-
-
-
