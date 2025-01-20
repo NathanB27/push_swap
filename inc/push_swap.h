@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/16 13:23:41 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:09:30 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_stack	*get_last(t_stack *stack);
 t_stack	*stack_new(int value);
 int		get_stack_size(t_stack *stack);
 t_stack	*get_cheapest(t_stack *stack);
-t_stack	*create_stack_a(char **input);
+t_stack	*create_stack_a(char **input, bool tofree);
 
 //bonus
 t_stack	*init_input_and_stack(int ac, char **av);

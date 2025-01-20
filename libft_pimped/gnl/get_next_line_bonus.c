@@ -6,13 +6,14 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 18:59:43 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/11 11:18:06 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/20 09:56:02 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strchr(const char *s, int c)
+/*
+char	*ft_strchr_gnl(const char *s, int c)
 {
 	int	i;
 
@@ -26,7 +27,7 @@ char	*ft_strchr(const char *s, int c)
 	if (s[i] == (char)c)
 		return ((char *)(s + i));
 	return (NULL);
-}
+}*/
 
 char	*get_next_line(int fd)
 {

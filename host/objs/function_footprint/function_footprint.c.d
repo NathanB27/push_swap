@@ -1,0 +1,21 @@
+objs/function_footprint/function_footprint.c.o: \
+ srcs/function_footprint/function_footprint.c \
+ srcs/function_footprint/function_footprint.h \
+ srcs/function_footprint/../../../shared/shared.h \
+ srcs/function_footprint/../../../shared/bool.h \
+ srcs/function_footprint/../../../shared/templates/btree.h \
+ srcs/function_footprint/../backtrace/backtrace.h \
+ srcs/function_footprint/../backtrace/../../../shared/shared.h \
+ srcs/function_footprint/../backtrace/../utils/bool.h \
+ srcs/function_footprint/../backtrace/../utils/../../../shared/bool.h \
+ srcs/function_footprint/../backtrace/../symbolizer/symbolizer.h \
+ srcs/function_footprint/../symbolizer/symbolizer.h \
+ srcs/function_footprint/../events/event_utils.h \
+ srcs/function_footprint/../events/../../../shared/shared.h \
+ srcs/function_footprint/../functions_test/functions_test.h \
+ srcs/function_footprint/../functions_test/../functions_fetch/functions_fetch.h \
+ srcs/function_footprint/../functions_test/../functions_fetch/../function_footprint/function_footprint.h \
+ srcs/function_footprint/../functions_test/../functions_fetch/../config/config.h \
+ srcs/function_footprint/../functions_test/../functions_fetch/../config/../../../shared/templates/btree.h \
+ srcs/function_footprint/../functions_test/../functions_fetch/../record_io/record_io.h \
+ srcs/function_footprint/../functions_test/../time/time.h

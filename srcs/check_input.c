@@ -3,44 +3,83 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 14:29:01 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 13:41:17 by nboucher         ###   ########.fr       */
+/*   Created: 2025/01/20 09:51:28 by nboucher          #+#    #+#             */
+/*   Updated: 2025/01/20 15:58:56 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strcmp(char *s1, char *s2)
+bool	is_sign(char c)
 {
-	int	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-	{
-		i ++;
-	}
-	return (s1[i] - s2[i]);
+	if (c == '+')
+		return (true);
+	if (c == '-')
+		return (true);
+	else
+		return (false);
 }
 
-bool	have_duplicates(char **input)
+char	**parse(int ac, char **av)
+{
+	char	**input;
+
+	if (ac == 2)
+		input = ft_split(av[1], ' ');
+	else
+		input = av + 1;
+	return (input);
+}
+
+int	get_stack_size(t_stack *stack)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
+	while (stack)
+	{
+		i++;
+		stack = stack->next;
+	}
+	return (i);
+}
+
+int	is_correct_input(char **input)
+{
+	int	i;
+	int	error;
+
+	i = 0;
+	error = 0;
 	while (input[i])
 	{
-		j = i + 1;
-		while (input[j])
-		{
-			if (ft_strcmp(input[i], input[j]) == 0)
-				return (true);
-			j++;
-		}
+		if (!only_digit(input[i]))
+			return (0);
 		i++;
 	}
-	return (false);
+	if (have_duplicates(input))
+		error++;
+	if (error > 0 || i == 1)
+	{
+		return (0);
+	}
+	return (1);
+}
+
+int	only_digit(char *input)
+{
+	int	i;
+
+	i = 0;
+	while (input[i])
+	{
+		while (is_sign(input[i]))
+			i++;
+		if (input[i] < '0' || input[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }

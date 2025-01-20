@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:51:27 by nboucher          #+#    #+#             */
-/*   Updated: 2024/11/29 17:41:42 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:39:49 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*buffer;
-
+	
+	if (fd == -1 && buffer)
+		free(buffer);
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
 	buffer = add_in_buffer(fd, buffer);

@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:45:23 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/16 13:22:04 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:39:48 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 int	do_moves(t_stack **a, t_stack **b, char *s, bool *bad_inst)
 {
 	if (!s)
+		return (-1);
+	if (!b && (s[0] = 'r') && s[1] == 'r')
 		return (-1);
 	if (!ft_strchr(s, 'b') && (!a || !*a))
 		*bad_inst = true;
@@ -42,6 +44,8 @@ int	do_other_moves(t_stack **a, t_stack **b, char *s, bool *bad_inst)
 {
 	if (!b || !*b)
 		*bad_inst = true;
+	if (!b && (s[0] = 'r') && s[1] == 'r')
+		return (-1);
 	if (s[0] == 's' && s[1] == 'b' && is_end_line(s[2]))
 		do_sb(b, false);
 	else if (s[0] == 'r' && s[1] == 'b' && is_end_line(s[2]))

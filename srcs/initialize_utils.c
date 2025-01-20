@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:18:53 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 13:33:27 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/20 09:43:11 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,49 @@ t_stack	*stack_new(int value)
 	new->previous = NULL;
 	return (new);
 }
+
+static int	nbstr_cmp(const char *s1, const char *s2)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = i;
+	if (s1[i] == '+')
+	{
+		if (s2[j] != '+')
+			i++;
+	}
+	else
+	{
+		if (s2[j] == '+')
+			j++;
+	}
+	while (s1[i] != '\0' && s2[j] != '\0' && s1[i] == s2[j])
+	{
+		i++;
+		j++;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
+}
+
+bool	have_duplicates(char **av)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (av[i])
+	{
+		j = 0;
+		while (av[j])
+		{
+			if (j != i && nbstr_cmp(av[i], av[j]) == 0)
+				return (true);
+			j++;
+		}
+		i++;
+	}
+	return (false);
+}
+

@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:28:43 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 15:35:31 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:48:20 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,27 @@ int	main(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	char	**input;
-	bool	need_free;
+	bool	tofree;
 
-	need_free = false;
+	tofree = false;
 	if (ac == 1)
 		return (1);
 	if (ac == 2 && av[1][0])
 	{
 		input = ft_split(av[1], ' ');
-		need_free = true;
+		tofree = true;
 	}
 	else
 		input = av + 1;
 	if (!input || !input[0] || !input[0][0] || !is_correct_input(input))
 	{
-		free_input(input, need_free);
+		free_input(input, tofree);
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
-	stack_a = create_stack_a(input);
+	stack_a = create_stack_a(input, false);
 	stack_b = NULL;
 	push_swap(&stack_a, &stack_b);
 	free_stack(&stack_a);
+	free_input(input, tofree);
 }

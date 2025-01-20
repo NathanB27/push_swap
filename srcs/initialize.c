@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:55:39 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 13:33:07 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:15:14 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ft_stackadd_back(t_stack **stack, t_stack *new)
 	}
 }
 
-t_stack	*create_stack_a(char **input)
+t_stack	*create_stack_a(char **input, bool tofree)
 {
 	int		i;
 	t_stack	*stack_a;
@@ -56,11 +56,15 @@ t_stack	*create_stack_a(char **input)
 		new = stack_new(ft_atoi(input[i]));
 		if (!new)
 		{
-			free(new);
+			free_stack(&new);
 			return (NULL);
 		}
 		ft_stackadd_back(&stack_a, new);
 		i++;
 	}
+	while (tofree && input && input[i])
+		free(input[i++]);
+	if (tofree && input)
+		free(input);
 	return (stack_a);
 }

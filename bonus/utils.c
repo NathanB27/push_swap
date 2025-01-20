@@ -6,12 +6,11 @@
 /*   By: nboucher <nboucher@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:45:25 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/16 13:21:45 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:39:44 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libft_pimped/include/get_next_line.h"
 
 t_stack	*init_input_and_stack(int ac, char **av)
 {
@@ -35,7 +34,7 @@ t_stack	*init_input_and_stack(int ac, char **av)
 		ft_putstr_fd("Error\n", 2);
 		return (NULL);
 	}
-	stack_a = create_stack_a(input);
+	stack_a = create_stack_a(input, need_free);
 	return (stack_a);
 }
 
