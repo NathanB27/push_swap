@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 11:13:26 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 15:33:13 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:05:26 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	swap(t_stack **stack)
 {
+	if (!stack || !*stack)
+		return ;
 	*stack = (*stack)->next;
 	(*stack)->previous->previous = *stack;
 	(*stack)->previous->next = (*stack)->next;

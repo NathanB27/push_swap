@@ -6,11 +6,12 @@
 /*   By: nboucher <nboucher@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:45:25 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/20 16:39:44 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:34:15 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 t_stack	*init_input_and_stack(int ac, char **av)
 {
@@ -45,29 +46,29 @@ bool	is_end_line(char c)
 	return (false);
 }
 
-void	free_checker(t_stack **a, t_stack **b, char **s)
+void	free_checker(t_stack **stack_a, t_stack **stack_b, char **str)
 {
 	t_stack	*tmp;
 
-	if (a)
+	if (stack_a)
 	{
-		while (*a)
+		while (*stack_a)
 		{
-			tmp = (*a)->next;
-			free(*a);
-			*a = tmp;
+			tmp = (*stack_a)->next;
+			free(*stack_a);
+			*stack_a = tmp;
 		}
 	}
-	if (b)
+	if (stack_b)
 	{
-		while (*b)
+		while (*stack_b)
 		{
-			tmp = (*b)->next;
-			free(*b);
-			*b = tmp;
+			tmp = (*stack_b)->next;
+			free(*stack_b);
+			*stack_b = tmp;
 		}
 	}
-	if (s && *s)
-		free(*s);
+	if (str && *str)
+		free(*str);
 	get_next_line(-1);
 }

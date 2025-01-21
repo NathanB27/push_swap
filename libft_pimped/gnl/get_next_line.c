@@ -6,35 +6,24 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:51:27 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/20 15:39:49 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:52:44 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i++;
-	}
-	if (s[i] == (char)c)
-		return ((char *)(s + i));
-	return (NULL);
-}
+#include "libft.h"
 
 char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*buffer;
-	
-	if (fd == -1 && buffer)
-		free(buffer);
+
+	if (fd == -1)
+	{
+		if (buffer)
+			free(buffer);
+		return (NULL);
+	}
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
 	buffer = add_in_buffer(fd, buffer);
@@ -66,7 +55,7 @@ char	*add_in_buffer(int fd, char *buffer)
 			return (NULL);
 		}
 		tmp[bytes_read] = '\0';
-		buffer = ft_strjoin(buffer, tmp);
+		buffer = ft_strjoin_free_1(buffer, tmp);
 	}
 	free(tmp);
 	return (buffer);
@@ -104,13 +93,13 @@ char	*del_line_buffer(char *buffer)
 	char	*new_buf;
 
 	i = 0;
-	while (buffer && buffer[i] && buffer[i] != '\n')
-		i++;
 	if (!buffer[i])
 	{
 		free(buffer);
 		return (NULL);
 	}
+	while (buffer && buffer[i] && buffer[i] != '\n')
+		i++;
 	new_buf = (char *)ft_calloc(ft_strlen(buffer) - i + 1, sizeof(char));
 	if (!new_buf)
 		return (NULL);

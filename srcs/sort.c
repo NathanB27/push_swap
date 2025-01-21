@@ -6,12 +6,11 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:23:31 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 15:36:34 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:39:58 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdbool.h>
 
 static void	reorder_stacks(t_stack **stack, t_stack *top_node, char name)
 {

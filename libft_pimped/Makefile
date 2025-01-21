@@ -30,8 +30,7 @@ FT_PUT_SRCS = ft_putchar.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_put
 FT_PUT_OBJ = ${addprefix ${FT_PUT_DIR}, ${FT_PUT_SRCS:.c=.o}}
 
 FT_GNL_DIR = gnl/
-FT_GNL_SRCS = get_next_line_bonus.c get_next_line.c get_next_line_utils_bonus.c \
-			  get_next_line_utils.c  
+FT_GNL_SRCS = get_next_line.c get_next_line_utils.c
 FT_GNL_OBJ = ${addprefix ${FT_GNL_DIR}, ${FT_GNL_SRCS:.c=.o}}
 
 FT_PRINTF_DIR = ft_printf/

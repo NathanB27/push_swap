@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:22:19 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/20 16:04:23 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:37:23 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_input(char **input, bool need_free)
 	int	i;
 
 	i = 0;
-	if (need_free)
+	if (need_free && input)
 	{
 		while (input[i])
 		{
@@ -26,7 +26,6 @@ void	free_input(char **input, bool need_free)
 		}
 		free(input);
 	}
-
 }
 
 void	free_stack(t_stack **stack)
@@ -42,4 +41,10 @@ void	free_stack(t_stack **stack)
 		free(*stack);
 		*stack = tmp;
 	}
+}
+
+void	free_all_alloc(char **input, t_stack **stack, bool tofree)
+{
+	free_input(input, tofree);
+	free_stack(stack);
 }

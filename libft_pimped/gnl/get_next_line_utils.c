@@ -6,28 +6,34 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:16:17 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/11 16:02:06 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:57:28 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i ++;
-	return (i);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
-{
-	int		i;
-	int		j;
+	size_t	i;
 	char	*dest;
 
+	i = 0;
+	dest = (char *)malloc(count * size);
+	if (!dest)
+		return (NULL);
+	while (i < count * size)
+		dest[i++] = '\0';
+	return (dest);
+}
+
+char	*ft_strjoin_free_1(char *s1, char *s2)
+{
+	int		i;
+	char	*dest;
+	int		j;
+
+	i = 0;
 	if (!s1)
 		s1 = (char *)ft_calloc(1, sizeof(char));
 	if (!s1 || !s2)
@@ -43,19 +49,5 @@ char	*ft_strjoin(char *s1, char *s2)
 		dest[i++] = s2[j++];
 	dest[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	free(s1);
-	return (dest);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	size_t	i;
-	char	*dest;
-
-	i = 0;
-	dest = (char *)malloc(count * size);
-	if (!dest)
-		return (NULL);
-	while (i < count * size)
-		dest[i++] = '\0';
 	return (dest);
 }

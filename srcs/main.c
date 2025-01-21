@@ -6,19 +6,18 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:28:43 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/20 16:48:20 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:39:41 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
-#include <stdbool.h>
 
 static void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
 	unsigned int	len;
 
-	if (!stack_a)
+	if (!stack_a || is_sorted(*stack_a))
 	{
 		return ;
 	}
@@ -35,6 +34,7 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b)
 		}
 	}
 }
+
 
 int	main(int ac, char **av)
 {
@@ -62,6 +62,5 @@ int	main(int ac, char **av)
 	stack_a = create_stack_a(input, false);
 	stack_b = NULL;
 	push_swap(&stack_a, &stack_b);
-	free_stack(&stack_a);
-	free_input(input, tofree);
+	free_all_alloc(input, &stack_a, tofree);
 }

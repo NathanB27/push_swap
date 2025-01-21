@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:00:28 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/15 15:32:59 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:02:19 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ void	do_ra(t_stack	**stack_a, bool print)
 		ft_printf("ra\n");
 }
 
-void	do_rb(t_stack	**stack_b, bool print)
+void	do_rb(t_stack **stack_b, bool print)
 {
+	if (!stack_b || !*stack_b)
+		return ;
 	rotate(stack_b);
 	if (print)
 		ft_printf("rb\n");
@@ -40,6 +42,8 @@ void	do_rb(t_stack	**stack_b, bool print)
 
 void	do_rr(t_stack	**stack_a, t_stack **stack_b, bool print)
 {
+	if (!stack_a || !*stack_a || !stack_b || !*stack_b)
+		return ;
 	rotate(stack_a);
 	rotate(stack_b);
 	if (print)

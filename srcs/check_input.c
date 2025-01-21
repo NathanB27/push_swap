@@ -6,10 +6,11 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 09:51:28 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/20 15:58:56 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:13:49 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
 #include "push_swap.h"
 
 bool	is_sign(char c)
@@ -75,8 +76,12 @@ int	only_digit(char *input)
 	i = 0;
 	while (input[i])
 	{
-		while (is_sign(input[i]))
+		if (is_sign(input[i]))
+		{
+			if (is_sign(input[i + 1]))
+				return (0);
 			i++;
+		}
 		if (input[i] < '0' || input[i] > '9')
 			return (0);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:55:39 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/20 16:15:14 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:03:31 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_stack	*create_stack_a(char **input, bool tofree)
 		ft_stackadd_back(&stack_a, new);
 		i++;
 	}
+	i = 0;
 	while (tofree && input && input[i])
 		free(input[i++]);
 	if (tofree && input)

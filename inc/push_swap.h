@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/20 16:09:30 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:55:09 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ bool	have_duplicates(char **input);
 bool	is_sign(char c);
 int		only_digit(char *input);
 int		is_sorted(t_stack	*stack);
+void	free_all_alloc(char **input, t_stack **stack, bool tofree);
+bool	double_zero(char **str);
+
 
 // movements
 void	do_sa(t_stack **stack_a, bool print);
@@ -78,8 +81,8 @@ t_stack	*create_stack_a(char **input, bool tofree);
 
 //bonus
 t_stack	*init_input_and_stack(int ac, char **av);
-int		do_other_moves(t_stack **a, t_stack **b, char *s, bool *bad_inst);
+int		do_other_moves(t_stack **a, t_stack **b, char *s, bool bad_instruction);
 bool	is_end_line(char c);
-void	free_checker(t_stack **a, t_stack **b, char **s);
+void	free_checker(t_stack **stack_a, t_stack **b, char **str);
 
 #endif

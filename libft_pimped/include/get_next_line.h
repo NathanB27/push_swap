@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:25:00 by nboucher          #+#    #+#             */
-/*   Updated: 2024/12/11 16:02:28 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:53:17 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 # endif
 
 # include <unistd.h>
-# include <stdlib.h>
 # include <fcntl.h>
-# include <stdio.h>
 
 // prototyoe of function in get_next_line
 
@@ -33,7 +31,7 @@ char	*del_line_buffer(char *buffer);
 // prototype of function utils...
 
 size_t	ft_strlen(const char *str);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin_free_1(char *s1, char *s2);
 void	*ft_calloc(size_t count, size_t size);
 
 #endif
