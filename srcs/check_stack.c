@@ -6,7 +6,7 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:13:24 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/21 18:05:12 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/22 13:50:41 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-
-bool double_zero(char **str)
+bool	double_zero(char **str)
 {
-    int	i;
+	int	i;
 	int	j;
 
 	i = 0;
@@ -49,4 +48,3 @@ bool double_zero(char **str)
 	}
 	return (false);
 }
-

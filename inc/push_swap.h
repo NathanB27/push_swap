@@ -6,16 +6,16 @@
 /*   By: nboucher <nboucher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:41 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/21 16:55:09 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/22 13:54:29 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <ft_printf.h>
-# include <get_next_line.h>
-# include <libft.h>
+# include "libft.h"
+# include "ft_printf.h"
+# include "get_next_line.h"
 # include <stddef.h>
 # include <unistd.h>
 # include <stdbool.h>
@@ -41,7 +41,6 @@ int		only_digit(char *input);
 int		is_sorted(t_stack	*stack);
 void	free_all_alloc(char **input, t_stack **stack, bool tofree);
 bool	double_zero(char **str);
-
 
 // movements
 void	do_sa(t_stack **stack_a, bool print);

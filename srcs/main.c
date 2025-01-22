@@ -6,12 +6,13 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:28:43 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/21 17:39:41 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/22 13:49:31 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
+#include <stdio.h>
 
 static void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
@@ -34,7 +35,6 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b)
 		}
 	}
 }
-
 
 int	main(int ac, char **av)
 {

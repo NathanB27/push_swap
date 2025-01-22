@@ -6,12 +6,12 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:18:53 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/21 17:01:39 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/22 13:49:48 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
- 
+
 t_stack	*stack_new(int value)
 {
 	t_stack	*new;
@@ -76,5 +76,3 @@ bool	have_duplicates(char **av)
 	}
 	return (false);
 }
-
-

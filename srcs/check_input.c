@@ -6,11 +6,11 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 09:51:28 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/21 18:13:49 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/22 13:50:56 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 #include "push_swap.h"
 
 bool	is_sign(char c)
@@ -56,7 +56,7 @@ int	is_correct_input(char **input)
 	error = 0;
 	while (input[i])
 	{
-		if (!only_digit(input[i]))
+		if (!only_digit(input[i]) || is_long_int((const char *) input[i]))
 			return (0);
 		i++;
 	}

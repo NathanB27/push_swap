@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:00:28 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/21 16:02:19 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/22 13:51:12 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	rotate(t_stack **stack)
 {
 	t_stack	*tail;
 
+	if (!*stack || !(*stack)->next)
+		return ;
 	tail = get_last(*stack);
 	tail->next = *stack;
 	*stack = (*stack)->next;
