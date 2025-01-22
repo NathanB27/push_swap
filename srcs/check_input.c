@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 09:51:28 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/22 13:50:56 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:32:40 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	is_correct_input(char **input)
 	}
 	if (have_duplicates(input))
 		error++;
-	if (error > 0 || i == 1)
+	if (error > 0)
 	{
 		return (0);
 	}

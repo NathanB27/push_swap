@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:28:43 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/22 13:49:31 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:36:23 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int ac, char **av)
 
 	tofree = false;
 	if (ac == 1)
-		return (1);
+		return (0);
 	if (ac == 2 && av[1][0])
 	{
 		input = ft_split(av[1], ' ');
