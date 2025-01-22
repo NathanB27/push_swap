@@ -1,2 +1,0 @@
--I./inc/
--I./libft_pimped/include/
