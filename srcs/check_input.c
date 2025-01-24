@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 09:51:28 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/22 15:32:40 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:24:36 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,16 @@ int	only_digit(char *input)
 	int	i;
 
 	i = 0;
+	if (is_sign(input[i]))
+	{
+		if (is_sign(input[i + 1]))
+			return (0);
+		i++;
+		if (!input[i])
+			return (0);
+	}
 	while (input[i])
 	{
-		if (is_sign(input[i]))
-		{
-			if (is_sign(input[i + 1]))
-				return (0);
-			i++;
-		}
 		if (input[i] < '0' || input[i] > '9')
 			return (0);
 		i++;
