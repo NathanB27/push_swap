@@ -6,7 +6,7 @@
 /*   By: nboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:18:53 by nboucher          #+#    #+#             */
-/*   Updated: 2025/01/22 13:49:48 by nboucher         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:39:37 by nboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,20 @@ static int	nbstr_cmp(const char *s1, const char *s2)
 	i = 0;
 	j = i;
 	if (s1[i] == '+')
-	{
-		if (s2[j] != '+')
-			i++;
-	}
-	else
-	{
-		if (s2[j] == '+')
-			j++;
-	}
+		i++;
+	if (s2[j] == '+')
+		j++;
+	while (s1[i] == '0')
+		i++;
+	while (s2[j] == '0')
+		j++;
 	while (s1[i] != '\0' && s2[j] != '\0' && s1[i] == s2[j])
 	{
 		i++;
 		j++;
 	}
+	if (s1[i] == '\0' && s2[j] == '\0')
+		return (0);
 	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
 }
 
