@@ -22,9 +22,17 @@ git clone git@github.com:NathanB27/push_swap.git && cd push_swap
 
 Avec visualizer :
 ```bash
-cd push_swap_visualizer && cd build && ./bin/visualizer
+cd push_swap_visualizer && mkdir build
 ```
- - voici le lien du repo du visualizer ```git@github.com:o-reo/push_swap_visualizer.git```
+Ensuite 
+```bash
+cd build && cmake ..
+```
+Puis
+```bash
+make && ./bin/visualizer
+```
+ - lien du repo du visualizer si besoin ```git@github.com:o-reo/push_swap_visualizer.git```
 
 Sans visualizer : 
 ```bash
