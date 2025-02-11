@@ -20,6 +20,12 @@ Clone the repository :
 git clone git@github.com:NathanB27/push_swap.git && cd push_swap
 ```
 
+Sans visualizer : 
+```bash
+./push_swap "put a list of unordered numbers"
+```
+Les operations seront affiche sur la sortie standard suivie d'un retour a ligne systematiquement 
+
 Avec visualizer :
 ```bash
 cd push_swap_visualizer && mkdir build
@@ -34,10 +40,6 @@ make && ./bin/visualizer
 ```
  - lien du repo du visualizer si besoin ```git@github.com:o-reo/push_swap_visualizer.git```
 
-Sans visualizer : 
-```bash
-./push_swap "put a list of unordered numbers"
-```
 
 
 
