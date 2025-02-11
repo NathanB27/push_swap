@@ -10,7 +10,9 @@ Push Swap est un projet de l'école 42 qui vise à trier une liste de nombres en
 - Minimiser le nombre d'opérations nécessaires pour trier la liste.
 - Utiliser un ensemble limité d'opérations pour manipuler les piles.
 
-## Fichiers du Projet
+## Tester le programme sur sa machine (only linux and x86 architecture)
+``` git clone  ```
+
 
 ### Vidéo du Tri
 
