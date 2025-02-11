@@ -31,19 +31,22 @@ Les images suivantes illustrent les différents mouvements possibles entre les d
 #### Mouvement 1
 
 ![Mouvement 1](https://github.com/user-attachments/assets/6ae57f91-26d3-432e-a799-3898d13dc7e7)
+credit : rlinsdev
 
 #### Mouvement 2
 
 ![Mouvement 2](https://github.com/user-attachments/assets/88dd7f25-8186-493e-a474-2de71322041f)
+credit : rlinsdev
 
 #### Mouvement 3
 
 ![Mouvement 3](https://github.com/user-attachments/assets/a94455fa-7b2a-4cd3-a7ad-d6e399de4d91)
+credit : rlinsdev
 
 #### Mouvement 4
 
 ![Mouvement 4](https://github.com/user-attachments/assets/fcf3c3e8-8129-4455-8685-47fdfc01c348)
-
+credit : rlinsdev 
 
 ## Notions Associées
 
