@@ -1,6 +1,6 @@
  # English version below ⬇🇬🇧🇬🇧
  
- # Push Swap 
+ # Push Swap (I got outstaning project && 125/100)
 
 ## Description
 
@@ -87,7 +87,7 @@ Push Swap est un projet stimulant qui permet aux étudiants de l'école 42 de se
 
 # 🇬🇧🇬🇧🇬🇧 ENGLISH version 🇬🇧🇬🇧🇬🇧
 
-# Push Swap
+# Push Swap (I got outstaning project && 125/100)
 
 ## Description
 
