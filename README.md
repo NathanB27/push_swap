@@ -20,13 +20,13 @@ Clone the repository :
 git clone git@github.com:NathanB27/push_swap.git && cd push_swap
 ```
 
-Sans visualizer : 
+### Sans visualizer : 
 ```bash
 ./push_swap "put a list of unordered numbers"
 ```
 Les operations seront affiche sur la sortie standard suivie d'un retour a ligne systematiquement 
 
-Avec visualizer :
+### Avec visualizer :
 ```bash
 cd push_swap_visualizer && mkdir build
 ```
